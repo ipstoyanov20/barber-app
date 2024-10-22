@@ -1,0 +1,11 @@
+﻿.idea
+.vs
+
+src/CSharpOnlineStore/COS.Data/bin
+src/CSharpOnlineStore/COS.Data/obj
+
+src/CSharpOnlineStore/COS.Service/bin
+src/CSharpOnlineStore/COS.Service/obj
+
+src/CSharpOnlineStore/COS.Webhost/bin
+src/CSharpOnlineStore/COS.Webhost/obj
