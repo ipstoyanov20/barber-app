@@ -9,3 +9,5 @@ src/CSharpOnlineStore/COS.Service/obj
 
 src/CSharpOnlineStore/COS.Webhost/bin
 src/CSharpOnlineStore/COS.Webhost/obj
+
+src/CSharpOnlineStore/COS.Webhost/COS.Webhost.csproj.user
