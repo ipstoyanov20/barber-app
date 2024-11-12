@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BA.Service
-build_property.ProjectDir = C:\Users\ipstoyanov20\RiderProjects\csharp-online-store\server\src\BarberApp\BA.Service\
+build_property.ProjectDir = C:\Users\ipstoyanov20\RiderProjects\barber-app\server\src\BarberApp\BA.Service\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

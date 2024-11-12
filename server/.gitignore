@@ -1,13 +1,16 @@
 ﻿.idea
 .vs
 
-src/CSharpOnlineStore/COS.Data/bin
-src/CSharpOnlineStore/COS.Data/obj
+src/BarberApp/BA.Data/bin
+src/BarberApp/BA.Data/obj
 
-src/CSharpOnlineStore/COS.Service/bin
-src/CSharpOnlineStore/COS.Service/obj
+src/BarberApp/BA.Service/bin
+src/BarberApp/BA.Service/obj
 
-src/CSharpOnlineStore/COS.Webhost/bin
-src/CSharpOnlineStore/COS.Webhost/obj
+src/BarberApp/BA.Common/bin
+src/BarberApp/BA.Common/obj
 
-src/CSharpOnlineStore/COS.Webhost/COS.Webhost.csproj.user
+src/BarberApp/BA.Webhost/bin
+src/BarberApp/BA.Webhost/obj
+
+src/BarberApp/BA.Webhost/BA.Webhost.csproj.user

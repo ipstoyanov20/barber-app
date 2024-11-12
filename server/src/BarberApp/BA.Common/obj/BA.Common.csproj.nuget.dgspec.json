@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ipstoyanov20\\RiderProjects\\csharp-online-store\\server\\src\\BarberApp\\BA.Common\\BA.Common.csproj": {}
+    "C:\\Users\\ipstoyanov20\\RiderProjects\\barber-app\\server\\src\\BarberApp\\BA.Common\\BA.Common.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ipstoyanov20\\RiderProjects\\csharp-online-store\\server\\src\\BarberApp\\BA.Common\\BA.Common.csproj": {
+    "C:\\Users\\ipstoyanov20\\RiderProjects\\barber-app\\server\\src\\BarberApp\\BA.Common\\BA.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ipstoyanov20\\RiderProjects\\csharp-online-store\\server\\src\\BarberApp\\BA.Common\\BA.Common.csproj",
+        "projectUniqueName": "C:\\Users\\ipstoyanov20\\RiderProjects\\barber-app\\server\\src\\BarberApp\\BA.Common\\BA.Common.csproj",
         "projectName": "BA.Common",
-        "projectPath": "C:\\Users\\ipstoyanov20\\RiderProjects\\csharp-online-store\\server\\src\\BarberApp\\BA.Common\\BA.Common.csproj",
+        "projectPath": "C:\\Users\\ipstoyanov20\\RiderProjects\\barber-app\\server\\src\\BarberApp\\BA.Common\\BA.Common.csproj",
         "packagesPath": "C:\\Users\\ipstoyanov20\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ipstoyanov20\\RiderProjects\\csharp-online-store\\server\\src\\BarberApp\\BA.Common\\obj\\",
+        "outputPath": "C:\\Users\\ipstoyanov20\\RiderProjects\\barber-app\\server\\src\\BarberApp\\BA.Common\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet"

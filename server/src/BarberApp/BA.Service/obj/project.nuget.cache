@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "23RuYmqpFRY=",
+  "dgSpecHash": "VscNsheIDM0=",
   "success": true,
-  "projectFilePath": "C:\\Users\\ipstoyanov20\\RiderProjects\\csharp-online-store\\server\\src\\BarberApp\\BA.Service\\BA.Service.csproj",
+  "projectFilePath": "C:\\Users\\ipstoyanov20\\RiderProjects\\barber-app\\server\\src\\BarberApp\\BA.Service\\BA.Service.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
