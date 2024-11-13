@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate-api": "java -jar swagger-codegen-cli.jar generate -i https://car-resume-builder.azurewebsites.net/swagger/v1/swagger.json -l typescript-axios -o src/pages/api"
   },
   "dependencies": {
     "react": "19.0.0-rc-65a56d0e-20241020",

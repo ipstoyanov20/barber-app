@@ -59,7 +59,7 @@ export default function Home() {
 
       {/* Footer Section */}
       <footer className="flex flex-col sm:flex-row justify-between items-center gap-4 text-center text-sm p-4 border-t border-gray-200 dark:border-gray-700 w-full">
-        <p className="text-gray-500 dark:text-gray-400">&copy; {new Date().getFullYear()} Your Store. All rights reserved.</p>
+        <p className="text-gray-500 dark:text-gray-400">&copy; {new Date().getFullYear()} Barbershop. All rights reserved.</p>
         <div className="flex gap-6">
           <a
             href="#"
