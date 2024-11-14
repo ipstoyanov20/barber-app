@@ -39,9 +39,9 @@ public class Program
             app.UseSwaggerUI();
         }
 
-        app.UseHttpsRedirection();
-        
         app.MapIdentityApi<User>();
+
+        app.UseHttpsRedirection();
 
         app.UseAuthorization();
 

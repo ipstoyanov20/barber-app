@@ -1,6 +1,6 @@
-@COS.Webhost_HostAddress = http://localhost:5281
+@BA.Application_HostAddress = http://localhost:5281
 
-GET {{COS.Webhost_HostAddress}}/weatherforecast/
+GET {{BA.Application_HostAddress}}/register/
 Accept: application/json
 
 ###
