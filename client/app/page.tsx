@@ -1,9 +1,10 @@
 import Image from "next/image";
-
+import Navbar from "@/components/navbar";
 export default function Home() {
   return (
+    <>
+      <Navbar/>
     <div className="grid grid-rows-[auto_1fr_auto] min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100">
-      
       {/* Hero Section */}
       <section className="relative w-full h-[500px] md:h-[600px] lg:h-[700px] flex items-center justify-center">
         {/* Background Image */}
@@ -14,7 +15,7 @@ export default function Home() {
           objectFit="cover"
           quality={90}
           className="absolute inset-0 z-0"
-        />
+          />
         
         {/* Overlay for Text Readability */}
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
@@ -45,8 +46,8 @@ export default function Home() {
           { name: "Grooming Package", price: "$40", img: "/service-6.jpg" },
         ].map((service, index) => (
           <div
-            key={index}
-            className="flex flex-col items-center p-6 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg bg-white dark:bg-gray-800"
+          key={index}
+          className="flex flex-col items-center p-6 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg bg-white dark:bg-gray-800"
           >
             <Image
               src={service.img} // Replace with actual service image URLs
@@ -54,7 +55,7 @@ export default function Home() {
               width={300}
               height={300}
               className="rounded-lg mb-4 shadow-md"
-            />
+              />
             <h2 className="text-xl font-semibold mb-2">{service.name}</h2>
             <p className="text-gray-500 dark:text-gray-400 mb-4">{service.price}</p>
             <button className="bg-red-500 text-white rounded-full px-6 py-2 hover:bg-red-600 transition-colors">
@@ -75,7 +76,7 @@ export default function Home() {
             className="hover:text-red-500"
             target="_blank"
             rel="noopener noreferrer"
-          >
+            >
             About Us
           </a>
           <a
@@ -83,7 +84,7 @@ export default function Home() {
             className="hover:text-red-500"
             target="_blank"
             rel="noopener noreferrer"
-          >
+            >
             Services
           </a>
           <a
@@ -91,11 +92,12 @@ export default function Home() {
             className="hover:text-red-500"
             target="_blank"
             rel="noopener noreferrer"
-          >
+            >
             Contact
           </a>
         </div>
       </footer>
     </div>
+            </>
   );
 }
