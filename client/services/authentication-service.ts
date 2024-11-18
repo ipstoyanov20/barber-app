@@ -1,42 +1,41 @@
-import { TokensIM, UserAuthApi, UserIM, UserLM } from "../api";
+import { LoginRequest, RegisterRequest, BaAppApi, AccessTokenResponse, RefreshRequest } from "../api";
 import { AxiosResponse } from "axios";
 import { WebApiService } from "./web-api-service"
 
 export class AuthenticationService extends WebApiService {
-  userAuthApi: UserAuthApi;
+  BaAppApi: BaAppApi;
 
   constructor() {
     super();
-    this.userAuthApi = new UserAuthApi();
+    this.BaAppApi = new BaAppApi();
   }
 
-  public async makeLoginRequest(email: string, password: string): Promise<AxiosResponse<void, any>> {
-    const userLM: UserLM = ({
+  public async makeLoginRequest(email: string, password: string, twoFactorCode?: string, twoFactorRecoveryCode?: string): Promise<AxiosResponse<AccessTokenResponse, any>> {
+    const loginRequest: LoginRequest = ({
+        email: email,
+        password: password,
+        twoFactorCode: twoFactorCode,
+        twoFactorRecoveryCode: twoFactorRecoveryCode,
+    });
+
+    return await this.BaAppApi.apiLoginPost(loginRequest, undefined, undefined, this.generateHeader());
+  }
+
+  public async makeRegisterRequest(email: string, password: string): Promise<AxiosResponse<void, any>> {
+    const registerRequest: RegisterRequest = ({
         email: email,
         password: password,
     });
 
-    return await this.userAuthApi.apiUserAuthLoginPost(userLM, this.generateHeader());
+    return await this.BaAppApi.apiRegisterPost(registerRequest, this.generateHeader());
   }
 
-  public async makeRegisterRequest(firstName: string, lastName: string, email: string, password: string): Promise<AxiosResponse<void, any>> {
-    const userIM: UserIM = ({
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
-        password: password,
-    });
-
-    return await this.userAuthApi.apiUserAuthRegisterPost(userIM, this.generateHeader());
-  }
-
-  public async renewToken(accessToken: string | null, refreshToken: string | null): Promise<AxiosResponse<void, any>> {
-    const tokensIM: TokensIM = ({
-        accessToken: accessToken,
+  public async refreshToken(refreshToken: string): Promise<AxiosResponse<AccessTokenResponse, any>> {
+    const refreshRequest: RefreshRequest = ({
         refreshToken: refreshToken,
     });
 
-    return await this.userAuthApi.apiUserAuthRenewPost(tokensIM, this.generateHeader());
+    return await this.BaAppApi.apiRefreshPost(refreshRequest, this.generateHeader());
   }
 }
 
