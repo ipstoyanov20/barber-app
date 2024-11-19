@@ -5,10 +5,10 @@ RUN apt-get update \
     clang zlib1g-dev
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["BarberApp/BA.Application.csproj", "BarberApp/"]
-RUN dotnet restore "./BarberApp/BA.Application.csproj"
+COPY ["BA.Application/BA.Application.csproj", "BA.Application/"]
+RUN dotnet restore "./BA.Application/BA.Application.csproj"
 COPY . .
-WORKDIR "/src/BarberApp"
+WORKDIR "/src/BA.Application"
 RUN dotnet build "./BA.Application.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
@@ -19,4 +19,4 @@ FROM mcr.microsoft.com/dotnet/runtime-deps:8.0 AS final
 WORKDIR /app
 EXPOSE 8080
 COPY --from=publish /app/publish .
-ENTRYPOINT ["./BarberApp"]
+ENTRYPOINT ["./BA.Application"]
