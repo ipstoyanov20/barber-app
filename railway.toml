@@ -3,6 +3,6 @@ builder = "dockerfile"
 dockerfilePath = "server/src/BarberApp/Dockerfile"
 
 [deploy]
-startCommand = "dotnet BA.Application.dll"
+startCommand = "./BA.Application"
 restartPolicyType = "always"
 healthcheckPath = "/health"
