@@ -1,33 +1,22 @@
-# Stage 1: Build
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-
-# Set the working directory inside the container
+# Install clang/zlib1g-dev dependencies for publishing to native
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+    clang zlib1g-dev
+ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-
-# Copy the .csproj files for the other layers and restore dependencies
-COPY ["BA.Application/BA.Application.csproj", "BA.Application/"]
-# COPY ["BA.Service/BA.Service.csproj", "BA.Service/"]
-# COPY ["BA.Data/BA.Data.csproj", "BA.Data/"]
-# COPY ["BA.Common/BA.Common.csproj", "BA.Common/"]
-
-# Restore dependencies for the Application project
-RUN dotnet restore "BA.Application/BA.Application.csproj"
-
-# Copy all source files into the container
+COPY ["BarberApp/BA.Application.csproj", "BarberApp/"]
+RUN dotnet restore "./BarberApp/BA.Application.csproj"
 COPY . .
+WORKDIR "/src/BarberApp"
+RUN dotnet build "./BA.Application.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
-# Build and publish the application from the Application project
-WORKDIR /src/BA.Application
-RUN dotnet publish -c Release -o /app/publish
+FROM build AS publish
+ARG BUILD_CONFIGURATION=Release
+RUN dotnet publish "./BA.Application.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=true
 
-# Stage 2: Runtime
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
-
+FROM mcr.microsoft.com/dotnet/runtime-deps:8.0 AS final
 WORKDIR /app
-EXPOSE 80
-
-# Copy the published app from the build stage
-COPY --from=build /app/publish .
-
-# Set the entry point for the application
-ENTRYPOINT ["dotnet", "BA.Application.dll"]
+EXPOSE 8080
+COPY --from=publish /app/publish .
+ENTRYPOINT ["./BarberApp"]
