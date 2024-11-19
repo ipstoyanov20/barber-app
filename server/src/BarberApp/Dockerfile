@@ -6,8 +6,8 @@ WORKDIR /src
 
 # Copy the .csproj files for the other layers and restore dependencies
 COPY ["BA.Application/BA.Application.csproj", "BA.Application/"]
-COPY ["BA.Service/BA.Service.csproj", "BA.Service/"]
-COPY ["BA.Data/BA.Data.csproj", "BA.Data/"]
+# COPY ["BA.Service/BA.Service.csproj", "BA.Service/"]
+# COPY ["BA.Data/BA.Data.csproj", "BA.Data/"]
 # COPY ["BA.Common/BA.Common.csproj", "BA.Common/"]
 
 # Restore dependencies for the Application project
