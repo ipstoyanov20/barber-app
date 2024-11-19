@@ -42,7 +42,7 @@ public class Program
         }
 
         app.MapIdentityApi<User>();
-        app.MapHealthChecks("/health");
+        app.UseHealthChecks("/health");
 
         app.UseHttpsRedirection();
 
