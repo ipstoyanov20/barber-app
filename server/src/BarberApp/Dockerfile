@@ -8,7 +8,7 @@ WORKDIR /src
 COPY ["BA.Application/BA.Application.csproj", "BA.Application/"]
 COPY ["BA.Service/BA.Service.csproj", "BA.Service/"]
 COPY ["BA.Data/BA.Data.csproj", "BA.Data/"]
-COPY ["BA.Common/BA.Common.csproj", "BA.Common/"]
+# COPY ["BA.Common/BA.Common.csproj", "BA.Common/"]
 
 # Restore dependencies for the Application project
 RUN dotnet restore "BA.Application/BA.Application.csproj"
