@@ -1,0 +1,8 @@
+[build]
+builder = "dockerfile"
+dockerfilePath = "server/src/BarberApp/Dockerfile"
+
+[deploy]
+startCommand = "./BarberApp" # Update this to match your app's entry point
+restartPolicyType = "always"
+healthcheckPath = "/health"

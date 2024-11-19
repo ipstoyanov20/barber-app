@@ -29,6 +29,8 @@ public class Program
         builder.Services.AddAuthorization();
         builder.Services.AddIdentityApiEndpoints<User>()
             .AddEntityFrameworkStores<ApplicationDbContext>();
+
+        builder.Services.AddHealthChecks();
         
         var app = builder.Build();
 
@@ -40,6 +42,7 @@ public class Program
         }
 
         app.MapIdentityApi<User>();
+        app.MapHealthChecks("/health");
 
         app.UseHttpsRedirection();
 
