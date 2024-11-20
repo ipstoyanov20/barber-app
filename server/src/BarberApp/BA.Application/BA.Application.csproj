@@ -3,6 +3,9 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
+    <UserSecretsId>aspnet-barberapp-dfa41088-92c2-4544-8ec1-4b481e3ea2fb</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>.</DockerfileContext>
     <InvariantGlobalization>true</InvariantGlobalization>
   </PropertyGroup>
 
