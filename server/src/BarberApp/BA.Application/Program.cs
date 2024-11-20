@@ -1,6 +1,8 @@
+using System;
 using BA.Data.Data;
 using BA.Data.Models;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.CSharp.RuntimeBinder;
 using Microsoft.EntityFrameworkCore;
@@ -29,7 +31,10 @@ public class Program
         builder.Services.AddAuthorization();
         builder.Services.AddIdentityApiEndpoints<User>()
             .AddEntityFrameworkStores<ApplicationDbContext>();
-
+        
+        var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+        builder.WebHost.UseUrls($"http://*:{port}");
+        
         builder.Services.AddHealthChecks();
         
         var app = builder.Build();
