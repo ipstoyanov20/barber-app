@@ -60,12 +60,12 @@ public class Program
 
 
         // Configure the HTTP request pipeline.
-        if (app.Environment.IsDevelopment() )
+        if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
         {
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "BA.Application v1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Barber app");
             });
         }
 
