@@ -41,7 +41,7 @@ public class Program
             .AddEntityFrameworkStores<ApplicationDbContext>();
         
         var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
-        builder.WebHost.UseUrls($"https://*:{port}");
+        builder.WebHost.UseUrls($"http://*:{port}");
         
         builder.Services.AddHealthChecks();
         
