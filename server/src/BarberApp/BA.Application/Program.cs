@@ -40,8 +40,8 @@ public class Program
         builder.Services.AddIdentityApiEndpoints<User>()
             .AddEntityFrameworkStores<ApplicationDbContext>();
         
-        var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
-        builder.WebHost.UseUrls($"http://*:{port}");
+        /*var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+        builder.WebHost.UseUrls($"http://*:{port}");*/
         
         builder.Services.AddHealthChecks();
         

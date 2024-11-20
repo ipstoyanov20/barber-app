@@ -5,4 +5,3 @@ dockerfilePath = "server/src/BarberApp/Dockerfile"
 [deploy]
 startCommand = "./BA.Application"
 restartPolicyType = "always"
-healthcheckPath = "/health"
