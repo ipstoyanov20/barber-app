@@ -1,13 +1,13 @@
-import { LoginRequest, RegisterRequest, BaAppApi, AccessTokenResponse, RefreshRequest } from "../api";
+import { LoginRequest, RegisterRequest, BAApplicationApi, AccessTokenResponse, RefreshRequest } from "../api";
 import { AxiosResponse } from "axios";
 import { WebApiService } from "./web-api-service"
 
 export class AuthenticationService extends WebApiService {
-  BaAppApi: BaAppApi;
+  applicationApi: BAApplicationApi;
 
   constructor() {
     super();
-    this.BaAppApi = new BaAppApi();
+    this.applicationApi = new BAApplicationApi();
   }
 
   public async makeLoginRequest(email: string, password: string, twoFactorCode?: string, twoFactorRecoveryCode?: string): Promise<AxiosResponse<AccessTokenResponse, any>> {
@@ -18,7 +18,7 @@ export class AuthenticationService extends WebApiService {
         twoFactorRecoveryCode: twoFactorRecoveryCode,
     });
 
-    return await this.BaAppApi.apiLoginPost(loginRequest, undefined, undefined, this.generateHeader());
+    return await this.applicationApi.loginPost(loginRequest, undefined, undefined, this.generateHeader());
   }
 
   public async makeRegisterRequest(email: string, password: string): Promise<AxiosResponse<void, any>> {
@@ -27,7 +27,7 @@ export class AuthenticationService extends WebApiService {
         password: password,
     });
 
-    return await this.BaAppApi.apiRegisterPost(registerRequest, this.generateHeader());
+    return await this.applicationApi.registerPost(registerRequest, this.generateHeader());
   }
 
   public async refreshToken(refreshToken: string): Promise<AxiosResponse<AccessTokenResponse, any>> {
@@ -35,7 +35,7 @@ export class AuthenticationService extends WebApiService {
         refreshToken: refreshToken,
     });
 
-    return await this.BaAppApi.apiRefreshPost(refreshRequest, this.generateHeader());
+    return await this.applicationApi.refreshPost(refreshRequest, this.generateHeader());
   }
 }
 
