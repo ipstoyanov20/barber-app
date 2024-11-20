@@ -15,3 +15,5 @@ src/BarberApp/BA.Application/obj
 
 src/BarberApp/BA.Application/BA.Application.csproj.user
 
+*.Designer.cs
+
