@@ -3,15 +3,15 @@ function Hero() {
     return (
 			<section className="relative grid grid-cols-2 w-screen h-screen">
 				<div className="w-full z-20 bg-white text-black p-6 grid place-content-center place-items-start">
-					<span className="translate-x-[15%] -translate-y-0">
+					<span className="translate-x-[20%] -translate-y-0">
 						<p className="font-cabinet text-5xl font-bold mb-4 text-[#AD3520]">
 							Your ultimate barber shop
 						</p>
-						<p className="whitespace-nowrap font-cabinet text-9xl font-bold mb-6 leading-none">
-							Your Pursuit of <span className="text-[#AD3520]">Pefection</span>{" "}
+						<h1 className="whitespace-nowrap font-cabinet text-9xl font-bold mb-6 leading-none">
+							Your Pursuit of <span className="text-[#AD3520]">Perfection</span>{" "}
 							<br /> Our Work of{" "}
-							<span className="text-[#AD3520]">Excelence</span>
-						</p>
+							<span className="text-[#AD3520]">Excellence</span>
+						</h1>
 						<p className="font-cabinet text-3xl w-[50%] font-semibold">
 							Experience premium grooming services tailored to your
 							individuality.

@@ -2,22 +2,22 @@
 
 function Navbar() {
   return (
-		<nav className="fixed top-0 w-full z-[50] bg-transparent text-black backdrop-blur-sm bg-opacity-15 backdrop-filter">
+		<nav className="fixed top-0 w-full z-[50] bg-transparent text-black backdrop-blur-md bg-opacity-15 backdrop-filter">
 			<ul className="flex h-20 bg-transparent space-x-5 items-center justify-between w-full">
 				<div className="flex flex-row space-x-5 justify-center items-center">
 					<li className="p-3 rounded-xl ml-5">
-						<p className="font-bold font-cabinet nav-link relative overflow-x-clip tracking-wide text-xl">
+						<p className="font-bold font-cabinet cursor-pointer nav-link relative overflow-x-clip tracking-wide text-xl">
 							Barbers
 						</p>
 					</li>
 					<li className="p-3 rounded-xl ml-5">
-						<p className="font-bold font-cabinet nav-link relative overflow-x-clip tracking-wide text-xl">
+						<p className="font-bold font-cabinet cursor-pointer nav-link relative overflow-x-clip tracking-wide text-xl">
 							Contact
 						</p>
 					</li>
 				</div>
 				<li className="p-3 rounded-xl absolute right-5">
-					<p className="font-bold font-cabinet nav-link relative overflow-x-clip tracking-wide text-xl">
+					<p className="z-50 font-bold font-cabinet cursor-pointer nav-link relative overflow-x-clip tracking-wide text-xl">
 						Book
 					</p>
 				</li>
