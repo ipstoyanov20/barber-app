@@ -40,8 +40,14 @@ public class Program
         builder.Services.AddIdentityApiEndpoints<User>()
             .AddEntityFrameworkStores<ApplicationDbContext>();
         
-        /*var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
-        builder.WebHost.UseUrls($"http://*:{port}");*/
+        builder.Services.AddCors(options =>
+        {
+            options.AddDefaultPolicy(builder =>
+                builder
+                    .AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader());
+        });
         
         builder.Services.AddHealthChecks();
         
