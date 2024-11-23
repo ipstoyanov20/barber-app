@@ -49,12 +49,27 @@ function Schedule() {
 			<span className="w-full  h-auto flex justify-center items-center pt-10">
 				<h1 className="font-cabinet relative font-bold text-9xl text-[#AD3520]">
 					Our Schedule
-                <span className="h-1 top-full left-0 absolute bg-[#AD3520] w-full"></span>
+					{/* <span className="h-1 top-full left-0 absolute bg-[#AD3520] w-full"></span> */}
 				</h1>
 			</span>
-            <div>
-
+			<div className="w-full h-full flex justify-center items-start">
+				<span className="h-[75%] w-1 rounded-2xl mt-10 mr-5 bg-[#AD3520]"></span>
+        <div className="w-3/4 mt-10">
+          {Object.entries(scheduler).map(([day, times], index) => (
+            <div
+              key={index}
+              className="mb-6 p-4 bg-white shadow-md rounded-lg flex flex-col items-start hover:translate-x-10 transition-all"
+            >
+              <h2 className="text-2xl font-bold font-cabinet text-[#AD3520]">{day}</h2>
+              {times.map((time, idx) => (
+                <p key={idx} className="text-gray-600 font-cabinet">
+                  {time.startTime} - {time.endTime}
+                </p>
+              ))}
             </div>
+          ))}
+        </div>
+			</div>
 		</section>
 	);
 }

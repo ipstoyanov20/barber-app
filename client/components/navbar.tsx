@@ -7,18 +7,23 @@ function Navbar() {
 				<div className="flex flex-row space-x-5 justify-center items-center">
 					<li className="p-3 rounded-xl ml-5">
 						<p className="font-bold font-cabinet cursor-pointer nav-link relative overflow-x-clip tracking-wide text-xl">
-							Barbers
+							Services
 						</p>
 					</li>
 					<li className="p-3 rounded-xl ml-5">
 						<p className="font-bold font-cabinet cursor-pointer nav-link relative overflow-x-clip tracking-wide text-xl">
-							Contact
+							About us
 						</p>
 					</li>
 				</div>
 				<li className="p-3 rounded-xl absolute right-5">
-					<p className="z-50 font-bold font-cabinet cursor-pointer nav-link relative overflow-x-clip tracking-wide text-xl">
-						Book
+					<p className="z-50 font-bold font-cabinet cursor-pointer px-5 py-2 text-[#FAF5F1] bg-[#AD3520] transition-all hover:bg-[#AD3520]/90 relative overflow-x-clip tracking-wide text-xl">
+						Book Now
+					</p>
+				</li>
+				<li className="p-3 rounded-xl absolute right-[9%]">
+					<p className="z-50 font-bold font-cabinet cursor-pointer px-5 py-2 hover:bg-[#dad5d2] transition-all bg-[#FAF5F1]  relative overflow-x-clip tracking-wide text-xl">
+						Log in
 					</p>
 				</li>
 				<span className="logo absolute flex flex-row left-1/2 -translate-x-8 translate-y-2 w-full h-full">

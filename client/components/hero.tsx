@@ -8,15 +8,15 @@ function Hero() {
 							Your ultimate barber shop
 						</p>
 						<h1 className="whitespace-nowrap font-cabinet text-9xl font-bold mb-6 leading-none">
-							Your Pursuit of <span className="text-[#AD3520]">Perfection</span>{" "}
+							Your Pursuit of <span className="text-[#AD3520] inline-block rounded-xl backdrop-blur-xl backdrop-filter bg-opacity-10">Perfection</span>{" "}
 							<br /> Our Work of{" "}
-							<span className="text-[#AD3520]">Excellence</span>
+							<span className="text-[#ad3520] inline-block mb-1 rounded-xl backdrop-blur-xl backdrop-filter bg-opacity-10">Excellence</span>
 						</h1>
 						<p className="font-cabinet text-3xl w-[50%] font-semibold">
 							Experience premium grooming services tailored to your
 							individuality.
 						</p>
-						<button className="bg-[#AD3520] rounded-md font-bold mt-10 px-10 py-2 text-white font-cabinet text-xl">
+						<button className="bg-[#AD3520] transition-all rounded-md font-bold mt-10 px-10 py-2 text-white font-cabinet text-xl hover:bg-[#AD3520]/90">
 							Book Now
 						</button>
 						<button className="bg-transparent border-2 border-[#AD3520] text-[#AD3520] rounded-md font-bold ml-5 mt-10 px-10 py-2 font-cabinet text-xl">
@@ -51,7 +51,7 @@ function Hero() {
 					<div className="grid grid-cols-1 place-content-center place-items-center relative h-full w-full">
 						<img
 							src="cut.png"
-							className="w-[50%] rounded-xl rotate-[-24deg]  absolute h-[70%]"
+							className="w-[50%] rounded-xl rotate-[-24deg] absolute h-[70%]"
 							alt="image"
 						/>
 						<img
@@ -61,7 +61,7 @@ function Hero() {
 						/>
 						<img
 							src="cut.png"
-							className="w-[50%] rounded-xl rotate-0  absolute h-[70%]"
+							className="w-[50%] rounded-xl rotate-0 absolute h-[70%]"
 							alt="image"
 						/>
 					</div>
