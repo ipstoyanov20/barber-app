@@ -52,6 +52,7 @@ public class Program
         builder.Services.AddHealthChecks();
         
         var app = builder.Build();
+        app.UseCors();
         using (var scope = app.Services.CreateScope())
         {
             var services = scope.ServiceProvider;

@@ -22,9 +22,11 @@ function Navbar() {
 					</p>
 				</li>
 				<li className="p-3 rounded-xl absolute right-[9%]">
-					<p className="z-50 font-bold font-cabinet cursor-pointer px-5 py-2 hover:bg-[#dad5d2] transition-all bg-[#FAF5F1]  relative overflow-x-clip tracking-wide text-xl">
-						Log in
-					</p>
+					<a href="/login">
+						<p className="z-50 font-bold font-cabinet cursor-pointer px-5 py-2 hover:bg-[#dad5d2] transition-all bg-[#FAF5F1]  relative overflow-x-clip tracking-wide text-xl">
+							Log in
+						</p>
+					</a>
 				</li>
 				<span className="logo absolute flex flex-row left-1/2 -translate-x-8 translate-y-2 w-full h-full">
 					<img className="w-12 h-12 rounded-full" src="favicon.ico" alt="" />

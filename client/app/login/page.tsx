@@ -34,6 +34,7 @@ const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		  "An unexpected error occurred";
   
 		alert(`Verification error: ${message}`);
+
 	  }
 	} else {
 	  alert("Please provide both email and password.");
@@ -105,7 +106,7 @@ function Login() {
 
 						<div className="text-center">
 							<a
-								href="#"
+								href="/register"
 								className="text-sm text-[#AD3520] hover:underline font-cabinet"
 							>
 								Don't have an account yet? Create one
