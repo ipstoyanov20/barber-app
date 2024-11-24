@@ -12,10 +12,7 @@ public class ApplicationDbContext : IdentityDbContext<User>
     {
     }
 
-    /// <summary>
-    /// Gets or sets RefreshTokens.
-    /// </summary>
-    // public virtual DbSet<RefreshToken> RefreshTokens { get; set; }
+    public virtual DbSet<User> UserAdditionalInfo { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

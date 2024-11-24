@@ -20,16 +20,9 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        // Add services to the container.
-
         builder.Services.AddControllers();
-        // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
-        /*builder.Services.AddDbContext<ApplicationDbContext>(options =>
-        {
-            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
-        });*/
         
         var connectionString = ConnectionHelper.GetConnectionString(builder.Configuration);
         builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -49,7 +42,6 @@ public class Program
                     .AllowAnyHeader());
         });
         
-        builder.Services.AddHealthChecks();
         
         var app = builder.Build();
         app.UseCors();
@@ -77,8 +69,7 @@ public class Program
         }
 
         app.MapIdentityApi<User>();
-        app.UseHealthChecks("/health");
-
+        
         app.UseHttpsRedirection();
 
         app.UseAuthorization();
