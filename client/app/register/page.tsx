@@ -51,6 +51,40 @@ function Register() {
 
 							<div className="space-y-2 w-[120%] -translate-x-5">
 								<label
+									htmlFor="firstName"
+									className="block text-sm text-[#AD3520] font-cabinet font-bold"
+								>
+									First Name
+								</label>
+								<input
+									type="text"
+									id="text"
+									name="firstName"
+									className="w-full text-[#AD3520] px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#AD3520] focus:outline-none font-cabinet placeholder-[#AD3520]"
+									placeholder="Enter your text"
+									required
+								/>
+							</div>
+
+							<div className="space-y-2 w-[120%] -translate-x-5">
+								<label
+									htmlFor="lastName"
+									className="block text-sm text-[#AD3520] font-cabinet font-bold"
+								>
+									Last Name
+								</label>
+								<input
+									type="text"
+									id="text"
+									name="lastName"
+									className="w-full text-[#AD3520] px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#AD3520] focus:outline-none font-cabinet placeholder-[#AD3520]"
+									placeholder="Enter your name"
+									required
+								/>
+							</div>
+
+							<div className="space-y-2 w-[120%] -translate-x-5">
+								<label
 									htmlFor="email"
 									className="block text-sm text-[#AD3520] font-cabinet font-bold"
 								>
