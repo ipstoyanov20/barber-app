@@ -13,6 +13,7 @@ public class ApplicationDbContext : IdentityDbContext<User>
     }
 
     public virtual DbSet<User> UserAdditionalInfo { get; set; }
+    public virtual DbSet<Reservation> Reservations { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

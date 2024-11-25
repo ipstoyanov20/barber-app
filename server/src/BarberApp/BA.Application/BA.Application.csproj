@@ -27,6 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BA.Common\BA.Common.csproj" />
     <ProjectReference Include="..\BA.Data\BA.Data.csproj" />
     <ProjectReference Include="..\BA.Service\BA.Service.csproj" />
   </ItemGroup>

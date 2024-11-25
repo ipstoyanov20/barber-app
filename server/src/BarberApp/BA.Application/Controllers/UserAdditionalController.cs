@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using BA.Common.Models.User;
 using BA.Data.Models;
 using BA.Service.Abstractions;
 using Microsoft.AspNetCore.Mvc;
@@ -15,9 +16,9 @@ public class UserAdditionalController
     }
     
     [HttpPost]
-    public async Task<ActionResult<User?>> CreateUserAdditionalInfoAsync([FromBody] User user)
+    public async Task<ActionResult<User?>> CreateUserAdditionalInfoAsync(UserIM userIM)
     {
-        return await this.userAdditionalService.CreateUserAdditionalInfoAsync(user.FirstName, user.LastName);
+        return await this.userAdditionalService.CreateUserAdditionalInfoAsync(userIM.FirstName, userIM.LastName);
     }
     
     [HttpGet("{Id}")]

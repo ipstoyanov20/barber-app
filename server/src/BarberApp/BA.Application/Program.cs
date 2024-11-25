@@ -45,17 +45,17 @@ public class Program
         
         var app = builder.Build();
         app.UseCors();
-        using (var scope = app.Services.CreateScope())
-        {
-            var services = scope.ServiceProvider;
-            var context = services.GetRequiredService<ApplicationDbContext>();
-
-            // Apply any pending migrations to the database.
-            await context.Database.MigrateAsync();
-
-            // Run additional data management tasks.
-            await DataHelper.ManageDataAsync(scope.ServiceProvider);
-        }
+        // using (var scope = app.Services.CreateScope())
+        // {
+        //     var services = scope.ServiceProvider;
+        //     var context = services.GetRequiredService<ApplicationDbContext>();
+        //
+        //     // Apply any pending migrations to the database.
+        //     await context.Database.MigrateAsync();
+        //
+        //     // Run additional data management tasks.
+        //     await DataHelper.ManageDataAsync(scope.ServiceProvider);
+        // }
 
 
         // Configure the HTTP request pipeline.
