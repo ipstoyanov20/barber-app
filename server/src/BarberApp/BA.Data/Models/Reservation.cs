@@ -16,6 +16,19 @@ public class Reservation
     public string LastName { get; set; } = String.Empty;
     
     [Required]
-    public DateOnly DateReserved { get; set; }
+    public DateOnly Date { get; set; } = DateOnly.FromDateTime(DateTime.Now);
+
+    [Required]
+    public TimeSpan Time { get; set; } = DateTime.Now.TimeOfDay;
     
+    
+    public string Email { get; set; } = String.Empty;
+    
+    [Required]
+    public string Phone { get; set; } = String.Empty;
+    
+    [Required]
+    public string Service { get; set; } = String.Empty;
+    
+    public string UserId { get; set; } = String.Empty;
 }
