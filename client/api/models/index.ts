@@ -1,4 +1,6 @@
 export * from './access-token-response';
+export * from './date-only';
+export * from './day-of-week';
 export * from './forgot-password-request';
 export * from './http-validation-problem-details';
 export * from './info-request';
@@ -7,6 +9,10 @@ export * from './login-request';
 export * from './refresh-request';
 export * from './register-request';
 export * from './resend-confirmation-email-request';
+export * from './reservation';
 export * from './reset-password-request';
+export * from './time-span';
 export * from './two-factor-request';
 export * from './two-factor-response';
+export * from './user';
+export * from './user-im';
