@@ -45,14 +45,14 @@ function Register() {
 				<section className="w-full h-full grid grid-cols-2">
 					<div className="w-full h-full flex justify-center items-center">
 						<form onSubmit={handleSubmit} className="space-y-6 scale-125">
-							<h2 className="text-2xl font-bold text-center font-cabinet text-[#AD3520]">
+							<h2 className="text-2xl font-bold text-center font-cabinet text-bordo">
 								Register
 							</h2>
 
 							<div className="space-y-2 w-[120%] -translate-x-5">
 								<label
 									htmlFor="firstName"
-									className="block text-sm text-[#AD3520] font-cabinet font-bold"
+									className="block text-sm text-bordo font-cabinet font-bold"
 								>
 									First Name
 								</label>
@@ -60,7 +60,7 @@ function Register() {
 									type="text"
 									id="text"
 									name="firstName"
-									className="w-full text-[#AD3520] px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#AD3520] focus:outline-none font-cabinet placeholder-[#AD3520]"
+									className="w-full text-bordo px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-bordo focus:outline-none font-cabinet placeholder-bordo"
 									placeholder="Enter your text"
 									required
 								/>
@@ -69,7 +69,7 @@ function Register() {
 							<div className="space-y-2 w-[120%] -translate-x-5">
 								<label
 									htmlFor="lastName"
-									className="block text-sm text-[#AD3520] font-cabinet font-bold"
+									className="block text-sm text-bordo font-cabinet font-bold"
 								>
 									Last Name
 								</label>
@@ -77,7 +77,7 @@ function Register() {
 									type="text"
 									id="text"
 									name="lastName"
-									className="w-full text-[#AD3520] px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#AD3520] focus:outline-none font-cabinet placeholder-[#AD3520]"
+									className="w-full text-bordo px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-bordo focus:outline-none font-cabinet placeholder-bordo"
 									placeholder="Enter your name"
 									required
 								/>
@@ -86,7 +86,7 @@ function Register() {
 							<div className="space-y-2 w-[120%] -translate-x-5">
 								<label
 									htmlFor="email"
-									className="block text-sm text-[#AD3520] font-cabinet font-bold"
+									className="block text-sm text-bordo font-cabinet font-bold"
 								>
 									Email
 								</label>
@@ -94,7 +94,7 @@ function Register() {
 									type="email"
 									id="email"
 									name="email"
-									className="w-full text-[#AD3520] px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#AD3520] focus:outline-none font-cabinet placeholder-[#AD3520]"
+									className="w-full text-bordo px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-bordo focus:outline-none font-cabinet placeholder-bordo"
 									placeholder="Enter your email"
 									required
 								/>
@@ -103,7 +103,7 @@ function Register() {
 							<div className="space-y-2 w-[120%] -translate-x-5">
 								<label
 									htmlFor="password"
-									className="block text-sm text-[#AD3520] font-cabinet font-bold"
+									className="block text-sm text-bordo font-cabinet font-bold"
 								>
 									Password
 								</label>
@@ -111,7 +111,7 @@ function Register() {
 									type="password"
 									id="password"
 									name="password"
-									className="w-full px-4 py-2 text-[#AD3520] border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#AD3520] focus:outline-none font-cabinet placeholder-[#AD3520]"
+									className="w-full px-4 py-2 text-bordo border border-gray-300 rounded-lg focus:ring-2 focus:ring-bordo focus:outline-none font-cabinet placeholder-bordo"
 									placeholder="Enter your password"
 									required
 								/>
@@ -120,7 +120,7 @@ function Register() {
 							<div className="flex items-center justify-between w-[120%] -translate-x-5">
 								<button
 									type="submit"
-									className="w-full py-2 bg-[#AD3520] text-white font-semibold rounded-lg hover:bg-[#AD3520]/90 transition-all font-cabinet"
+									className="w-full py-2 bg-bordo text-white font-semibold rounded-lg hover:bg-bordo/90 transition-all font-cabinet"
 								>
 									Register
 								</button>
@@ -129,7 +129,7 @@ function Register() {
 							<div className="text-center">
 								<a
 									href="/login"
-									className="text-sm text-[#AD3520] hover:underline font-cabinet"
+									className="text-sm text-bordo hover:underline font-cabinet"
 								>
 									Already have an account? Log in
 								</a>

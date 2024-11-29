@@ -4,43 +4,43 @@ function Hero() {
 			<section className="relative grid grid-cols-2 w-screen h-screen">
 				<div className="w-full z-20 bg-white text-black p-6 grid place-content-center place-items-start">
 					<span className="translate-x-[20%] -translate-y-0">
-						<p className="font-cabinet text-5xl font-bold mb-4 text-[#AD3520]">
+						<p className="font-cabinet text-5xl font-bold mb-4 text-bordo">
 							Your ultimate barber shop
 						</p>
 						<h1 className="whitespace-nowrap font-cabinet text-9xl font-bold mb-6 leading-none">
-							Your Pursuit of <span className="text-[#AD3520] inline-block rounded-xl backdrop-blur-xl backdrop-filter bg-opacity-10">Perfection</span>{" "}
+							Your Pursuit of <span className="text-bordo inline-block rounded-xl backdrop-blur-xl backdrop-filter bg-opacity-10">Perfection</span>{" "}
 							<br /> Our Work of{" "}
-							<span className="text-[#ad3520] inline-block mb-1 rounded-xl backdrop-blur-xl backdrop-filter bg-opacity-10">Excellence</span>
+							<span className="text-bordo inline-block mb-1 rounded-xl backdrop-blur-xl backdrop-filter bg-opacity-10">Excellence</span>
 						</h1>
 						<p className="font-cabinet text-3xl w-[50%] font-semibold">
 							Experience premium grooming services tailored to your
 							individuality.
 						</p>
-						<button className="bg-[#AD3520] transition-all rounded-md font-bold mt-10 px-10 py-2 text-white font-cabinet text-xl hover:bg-[#AD3520]/90">
+						<button className="bg-bordo transition-all rounded-md font-bold mt-10 px-10 py-2 text-white font-cabinet text-xl hover:bg-bordo/90">
 							Book Now
 						</button>
-						<button className="bg-transparent border-2 border-[#AD3520] text-[#AD3520] rounded-md font-bold ml-5 mt-10 px-10 py-2 font-cabinet text-xl">
+						<button className="bg-transparent border-2 border-bordo text-bordo rounded-md font-bold ml-5 mt-10 px-10 py-2 font-cabinet text-xl">
 							See schedule
 						</button>
 						<div className="grid grid-cols-3 ml-5 mt-10 w-[50%]">
 							<div className="flex flex-col relative">
-								<span className="w-1 h-full bg-[#AD3520] right-14 absolute"></span>
+								<span className="w-1 h-full bg-bordo right-14 absolute"></span>
 								<p className="font-cabinet text-3xl font-bold text-black">
-									<span className="text-[#AD3520] text-4xl">+</span> 4.9
+									<span className="text-bordo text-4xl">+</span> 4.9
 								</p>
 								<p className="font-cabinet text-xl font-semibold">Rating</p>
 							</div>
 							<div className="flex flex-col relative">
-								<span className="w-1 h-full bg-[#AD3520] right-14 absolute"></span>
+								<span className="w-1 h-full bg-bordo right-14 absolute"></span>
 								<p className="font-cabinet text-3xl font-bold text-black">
-									<span className="text-[#AD3520] text-4xl">+</span>
+									<span className="text-bordo text-4xl">+</span>
 									100
 								</p>
 								<p className="font-cabinet text-xl font-semibold">Customers</p>
 							</div>
 							<div className="flex flex-col relative">
 								<p className="font-cabinet text-3xl font-bold text-black">
-									<span className="text-[#AD3520] text-4xl">+</span>5
+									<span className="text-bordo text-4xl">+</span>5
 								</p>
 								<p className="font-cabinet text-xl font-semibold">Customers</p>
 							</div>

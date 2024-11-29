@@ -1,7 +1,7 @@
 "use client";
 function Footer() {
 	return (
-		<footer className="footer bg-[#AD3520] text-neutral-content p-10">
+		<footer className="footer bg-bordo text-neutral-content p-10">
 			<aside>
 				<img className="rounded-full" src="favicon.ico" alt="logo" />
 				<p className="font-cabinet">
