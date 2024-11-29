@@ -19,7 +19,7 @@ function Navbar() {
 	setIsLogged(false);
   };
   return (
-    <nav className="fixed top-0 w-full z-[50] bg-transparent text-black backdrop-blur-md bg-opacity-15 backdrop-filter">
+    <nav className="fixed top-0 w-full z-[50] bg-transparent text-black backdrop-blur-3xl bg-opacity-15 backdrop-filter">
       {/* AuthGuard manages login state */}
       <AuthGuard onAuthChange={setIsLogged} />
 
@@ -27,10 +27,10 @@ function Navbar() {
         {/* Left-side navigation items */}
         <div className="flex space-x-5 justify-center items-center">
           <li className="p-3 rounded-xl ml-5">
-            <p className="font-bold font-cabinet cursor-pointer text-xl tracking-wide">Services</p>
+            <Link href='/#services' className="font-bold font-cabinet relative nav-link cursor-pointer text-xl tracking-wide">Services</Link>
           </li>
           <li className="p-3 rounded-xl ml-5">
-            <p className="font-bold font-cabinet cursor-pointer text-xl tracking-wide">About Us</p>
+            <Link href='/#about' className="font-bold font-cabinet relative nav-link cursor-pointer text-xl tracking-wide">About Us</Link>
           </li>
         </div>
 

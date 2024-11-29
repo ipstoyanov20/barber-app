@@ -1,6 +1,6 @@
 function About() {
   return (
-		<section className="w-screen h-auto relative mt-32 mb-10">
+		<section id="about" className="w-screen h-auto relative mt-32 mb-10">
 			<div className="absolute grid grid-cols-2 w-full h-full">
 				<div className="bg-[#FAF5F1]"></div>
 				<div className="bg-white relative flex justify-end items-start"></div>

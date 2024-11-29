@@ -1,4 +1,7 @@
 "use client"
+
+import Link from "next/link";
+
 function Hero() {
     return (
 			<section className="relative grid grid-cols-2 w-screen h-screen">
@@ -8,20 +11,29 @@ function Hero() {
 							Your ultimate barber shop
 						</p>
 						<h1 className="whitespace-nowrap font-cabinet text-9xl font-bold mb-6 leading-none">
-							Your Pursuit of <span className="text-bordo inline-block rounded-xl backdrop-blur-xl backdrop-filter bg-opacity-10">Perfection</span>{" "}
+							Your Pursuit of{" "}
+							<span className="text-bordo inline-block rounded-xl backdrop-blur-xl backdrop-filter bg-opacity-10">
+								Perfection
+							</span>{" "}
 							<br /> Our Work of{" "}
-							<span className="text-bordo inline-block mb-1 rounded-xl backdrop-blur-xl backdrop-filter bg-opacity-10">Excellence</span>
+							<span className="text-bordo inline-block mb-1 rounded-xl backdrop-blur-xl backdrop-filter bg-opacity-10">
+								Excellence
+							</span>
 						</h1>
 						<p className="font-cabinet text-3xl w-[50%] font-semibold">
 							Experience premium grooming services tailored to your
 							individuality.
 						</p>
-						<button className="bg-bordo transition-all rounded-md font-bold mt-10 px-10 py-2 text-white font-cabinet text-xl hover:bg-bordo/90">
-							Book Now
-						</button>
-						<button className="bg-transparent border-2 border-bordo text-bordo rounded-md font-bold ml-5 mt-10 px-10 py-2 font-cabinet text-xl">
-							See schedule
-						</button>
+						<Link href={`/book`}>
+							<button className="bg-bordo transition-all rounded-md font-bold mt-10 px-10 py-2 text-white font-cabinet text-xl hover:bg-bordo/90">
+								Book Now
+							</button>
+						</Link>
+						<Link href={`/#schedule`}>
+							<button className="bg-transparent border-2 border-bordo text-bordo rounded-md font-bold ml-5 mt-10 px-10 py-2 font-cabinet text-xl">
+								See schedule
+							</button>
+						</Link>
 						<div className="grid grid-cols-3 ml-5 mt-10 w-[50%]">
 							<div className="flex flex-col relative">
 								<span className="w-1 h-full bg-bordo right-14 absolute"></span>

@@ -33,7 +33,7 @@ function Services() {
   ];
   
   return (
-		<section className="w-screen h-auto pb-20 bg-[#FAF5F1]">
+		<section id="services" className="w-screen h-auto pb-20 bg-[#FAF5F1]">
 			<div className="w-full relative h-auto flex justify-start pt-10">
 				<h1 className="z-20 whitespace-nowrap font-cabinet relative font-bold text-9xl ml-20 mt-20 text-bordo">
 					Men's haircut <br /> and beard <br />
