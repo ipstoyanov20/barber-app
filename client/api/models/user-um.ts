@@ -14,13 +14,19 @@
 /**
  * 
  * @export
- * @interface ForgotPasswordRequest
+ * @interface UserUM
  */
-export interface ForgotPasswordRequest {
+export interface UserUM {
     /**
      * 
      * @type {string}
-     * @memberof ForgotPasswordRequest
+     * @memberof UserUM
      */
-    email?: string | null;
+    firstName: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof UserUM
+     */
+    lastName: string;
 }

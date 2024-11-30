@@ -14,5 +14,5 @@ export * from './reset-password-request';
 export * from './time-span';
 export * from './two-factor-request';
 export * from './two-factor-response';
-export * from './user';
-export * from './user-im';
+export * from './user-um';
+export * from './user-vm';

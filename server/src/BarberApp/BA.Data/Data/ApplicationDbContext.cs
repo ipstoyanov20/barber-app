@@ -11,8 +11,6 @@ public class ApplicationDbContext : IdentityDbContext<User>
         : base(options)
     {
     }
-
-    public virtual DbSet<User> UserAdditionalInfo { get; set; }
     public virtual DbSet<Reservation> Reservations { get; set; }
     
 }
