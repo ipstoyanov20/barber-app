@@ -1,4 +1,4 @@
-import { TimeSpan, Reservation, ReservationApi, User } from "@/api";
+import { TimeSpan, Reservation, ReservationApi, } from "@/api";
 import { WebApiService } from "./web-api-service";
 import { AxiosResponse } from "axios";
  export class ReservationService extends WebApiService {

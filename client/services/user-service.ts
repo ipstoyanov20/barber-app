@@ -1,4 +1,5 @@
-import {UserIM,User} from "@/api";
+import {UserUM} from "@/api";
+import {UserVM} from "@/api";
 import {WebApiService} from "@/services/web-api-service";
 import {AxiosResponse} from "axios";
 import {UserApi} from "@/api/apis/user-api";
@@ -8,10 +9,10 @@ export class UserAddService extends WebApiService {
         super();
         this.userApi = new UserApi();
     }
-    public async makeUserPostRequest(user: UserIM): Promise<AxiosResponse<User, any>> {
-        return await this.userApi.userPost(user, this.generateHeader());
+    public async makeUserPutRequest(user: UserUM, userEmail: string): Promise<AxiosResponse<boolean, any>> {
+        return await this.userApi.userPut(user, userEmail, this.generateHeader());
     }
-    public async makeUserIdGetRequest(id: string): Promise<AxiosResponse<User, any>> {
-        return await this.userApi.userIdGet(id, this.generateHeader());
+    public async makeUserCurrentGetRequest(): Promise<AxiosResponse<UserVM, any>> {
+        return await this.userApi.userCurrentGet(this.generateHeader());
     }
 }
