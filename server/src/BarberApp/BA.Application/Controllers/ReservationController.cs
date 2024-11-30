@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace BA.Application.Controllers;
 [ApiController]
 [Route("[controller]")]
-public class ReservationController
+public class ReservationController: ControllerBase
 {
     private readonly ReservationService reservationService;
 

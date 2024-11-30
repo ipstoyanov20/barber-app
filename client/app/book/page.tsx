@@ -24,6 +24,11 @@ function Book() {
 		setIsServiceSelected("");
 	};
 
+	const handleSubmit = () => {
+		
+		setIsServiceSelected("");
+	};
+
 	const handleToggle = (index: number) => {
 		const allCheckboxes: NodeListOf<HTMLInputElement> =
 			document.querySelectorAll("input[type='checkbox']");
@@ -45,53 +50,50 @@ function Book() {
 
 	const services = [
 		{
-			title: "Men's Haircut and Washing",
-			duration: "60 min",
-			description:
-				"Haircut, washing with energizing shampoo and conditioner, application of styling products.",
-			price: "45 BGN",
+		  title: "Men's haircut and washing",
+		  duration: "60 min",
+		  description: "Haircut, washing with energizing shampoo and conditioner, application of styling products.",
+		  price: "45 BGN"
 		},
 		{
-			title: "Men's Haircut and Short Beard Styling",
-			duration: "60 min",
-			description:
-				"Haircut, styling of a short beard, washing with energizing shampoo and conditioner, application of moisturizing products.",
-			price: "65 BGN",
+		  title: "Men's haircut and short beard styling",
+		  duration: "60 min",
+		  description: "Haircut, styling of a short beard, washing with energizing shampoo and conditioner, application of moisturizing products.",
+		  price: "65 BGN"
 		},
 		{
-			title: "Men's Haircut and Long Beard Styling",
-			duration: "60 min",
-			description:
-				"Haircut, styling of a long beard, washing with energizing shampoo and conditioner, application of moisturizing products.",
-			price: "70 BGN",
+		  title: "Men's haircut and long beard styling",
+		  duration: "60 min",
+		  description: "Haircut, styling of a long beard, washing with energizing shampoo and conditioner, application of moisturizing products.",
+		  price: "70 BGN"
 		},
 		{
-			title: "Men's Haircut and Royal Shaving",
-			duration: "60 min",
-			description:
-				"Haircut, washing with energizing shampoo and conditioner, wet shaving with professional products.",
-			price: "80 BGN",
+		  title: "Men's haircut and royal shaving",
+		  duration: "60 min",
+		  description: "Haircut, washing with energizing shampoo and conditioner, wet shaving with professional products.",
+		  price: "80 BGN"
 		},
 		{
-			title: "Buzz Cut",
-			duration: "30 min",
-			description: "Clippers with a single guard.",
-			price: "35 BGN",
-		},
-	];
+		  title: "Buzz cut",
+		  duration: "30 min",
+		  description: "Clippers with a single guard.",
+		  price: "35 BGN"
+		}
+	  ];
+	  
 
 	return (
 		<>
 			<Navbar />
 			<main className="w-screen relative h-screen grid place-items-center">
 				<h1 className="absolute z-20 left-[10%] top-[15%] font-cabinet font-bold text-bordo text-7xl">
-					<Link className="" onClick={handleBackToService} href="">
+					<Link className="nav-link relative" onClick={handleBackToService} href="">
 						Services
 					</Link>
 					<span className="text-black"> \ </span>{" "}
 					{isServiceSelected && (
 						<>
-							<Link className="" href="">
+							<Link className="nav-link relative" href="">
 								{isServiceSelected}
 							</Link>{" "}
 							<span className="text-black"> \ </span>
@@ -113,7 +115,7 @@ function Book() {
 									{/* Date Picker on the left */}
 									<div className="w-1/2">
 										<h3 className="font-semibold text-xl text-bordo">
-											Select Appointment Date
+											Select date
 										</h3>
 										<input
 											type="date"
@@ -127,7 +129,7 @@ function Book() {
 									{/* Time Picker on the right */}
 									<div className="w-1/2 mt-5">
 										<h3 className="font-semibold text-xl text-bordo">
-											Select Appointment Time
+											Select hour
 										</h3>
 										<select
 											value={selectedTime}
@@ -147,7 +149,7 @@ function Book() {
 									<span className="font-cabinet translate-y-28">
 
 									<h3 className="font-semibold text-xl text-center text-bordo">
-										Your Appointment
+										Your appointment
 									</h3>
 									<div className="border-b mt-5 rounded-t-xl border-bordo relative pb-4 mb-4 hover:bg-[#F8F9FA] transition-all last:border-none last:mb-0 cursor-pointer">
 										<h2 className="font-cabinet text-center font-bold mb-3 text-2xl text-gray-800">
@@ -169,7 +171,7 @@ function Book() {
 									<p className="mt-2 text-bordo text-xl">
 										Date: {selectedDate.toLocaleDateString()}
 									</p>
-									<p className="mt-1 text-bordo text-xl">Time: {selectedTime}</p>
+									<p className="mt-1 text-bordo text-xl">Hour: {selectedTime}</p>
 									</span>
 								</div>
 							</div>
@@ -208,7 +210,7 @@ function Book() {
 					</div>
 				</section>
 				<button
-					onClick={() => setIsServiceSelected("When?")}
+					onClick={() => {isServiceSelected ? handleSubmit() : setIsServiceSelected("When?")}}
 					disabled={isDisabled}
 					className={`font-cabinet text-2xl font-bold px-5 py-3 rounded-xl absolute top-[80%] left-[85.5%] 
 					${
@@ -217,7 +219,7 @@ function Book() {
 							: "bg-bordo text-white cursor-pointer"
 					}`}
 				>
-					Next
+					{isServiceSelected ? "Make a book" : "Next"}
 				</button>
 			</main>
 			<Footer />

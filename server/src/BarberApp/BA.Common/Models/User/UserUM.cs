@@ -2,7 +2,7 @@
 
 namespace BA.Common.Models.User;
 
-public class UserIM
+public class UserUM
 {
     [Required]
     public string FirstName { get; set; } = string.Empty;

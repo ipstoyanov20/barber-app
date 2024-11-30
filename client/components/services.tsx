@@ -1,36 +1,37 @@
 function Services() {
-  const services = [
-    {
-      title: "Men's Haircut and Washing",
-      duration: "60 min",
-      description: "Haircut, washing with energizing shampoo and conditioner, application of styling products.",
-      price: "45 BGN"
-    },
-    {
-      title: "Men's Haircut and Short Beard Styling",
-      duration: "60 min",
-      description: "Haircut, styling of a short beard, washing with energizing shampoo and conditioner, application of moisturizing products.",
-      price: "65 BGN"
-    },
-    {
-      title: "Men's Haircut and Long Beard Styling",
-      duration: "60 min",
-      description: "Haircut, styling of a long beard, washing with energizing shampoo and conditioner, application of moisturizing products.",
-      price: "70 BGN"
-    },
-    {
-      title: "Men's Haircut and Royal Shaving",
-      duration: "60 min",
-      description: "Haircut, washing with energizing shampoo and conditioner, wet shaving with professional products.",
-      price: "80 BGN"
-    },
-    {
-      title: "Buzz Cut",
-      duration: "30 min",
-      description: "Clippers with a single guard.",
-      price: "35 BGN"
-    }
-  ];
+	const services = [
+		{
+		  title: "Men's haircut and washing",
+		  duration: "60 min",
+		  description: "Haircut, washing with energizing shampoo and conditioner, application of styling products.",
+		  price: "45 BGN"
+		},
+		{
+		  title: "Men's haircut and short beard styling",
+		  duration: "60 min",
+		  description: "Haircut, styling of a short beard, washing with energizing shampoo and conditioner, application of moisturizing products.",
+		  price: "65 BGN"
+		},
+		{
+		  title: "Men's haircut and long beard styling",
+		  duration: "60 min",
+		  description: "Haircut, styling of a long beard, washing with energizing shampoo and conditioner, application of moisturizing products.",
+		  price: "70 BGN"
+		},
+		{
+		  title: "Men's haircut and royal shaving",
+		  duration: "60 min",
+		  description: "Haircut, washing with energizing shampoo and conditioner, wet shaving with professional products.",
+		  price: "80 BGN"
+		},
+		{
+		  title: "Buzz cut",
+		  duration: "30 min",
+		  description: "Clippers with a single guard.",
+		  price: "35 BGN"
+		}
+	  ];
+	  
   
   return (
 		<section id="services" className="w-screen h-auto pb-20 bg-[#FAF5F1]">
