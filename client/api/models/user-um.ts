@@ -29,4 +29,10 @@ export interface UserUM {
      * @memberof UserUM
      */
     lastName: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof UserUM
+     */
+    phoneNumber: string;
 }

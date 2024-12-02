@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Mvc;
 namespace BA.Application.Controllers;
 [Route("[controller]")]
 [ApiController]
-[Authorize]
 public class UserController : ControllerBase
 {
     private readonly IUserService userService;
@@ -26,6 +25,7 @@ public class UserController : ControllerBase
     }
     
     [HttpGet("current")]
+    [Authorize]
     public async Task<ActionResult<UserVM?>> GetUserMeAsync()
     {
         var result = await this.userService.GetUserByIdAsync(this.currentUser.UserId);

@@ -23,7 +23,7 @@ const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		const user: UserUM = {
 			firstName: firstName,
 			lastName: lastName,
-			phoneNumber: phoneNumber,
+			phoneNumber: phoneNumber || "",
 		}
 		
 		await userService.makeUserPutRequest(user,email)

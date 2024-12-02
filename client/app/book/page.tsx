@@ -16,11 +16,11 @@ function Book() {
 	useEffect( () => {
 	  const fetchUser = async () => {
 		try {
-		  const response = await userService.makeUserCurrentGetRequest();
+		  const response: any = await userService.makeUserCurrentGetRequest();
 		  setCurrentUser({
 			id: response.id,
 			email: response.email,
-			firstName: response?.firstName,
+			firstName: response.firstName,
 			lastName: response.lastName,
 			phoneNumber: response.phoneNumber,
 		  });
@@ -193,6 +193,11 @@ function Book() {
 										Date: {selectedDate.toLocaleDateString()}
 									</p>
 									<p className="mt-1 text-bordo text-xl">Hour: {selectedTime}</p>
+
+									<p className="mt-2 absolute right-[20%] bottom-20 text-bordo text-xl">
+										Date: {selectedDate.toLocaleDateString()}
+									</p>
+									<p className="mt-1 absolute right-[20%] bottom-10 text-bordo text-xl">Hour: {selectedTime}</p>
 									</span>
 								</div>
 							</div>

@@ -41,4 +41,10 @@ export interface UserVM {
      * @memberof UserVM
      */
     email?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof UserVM
+     */
+    phoneNumber?: string | null;
 }
