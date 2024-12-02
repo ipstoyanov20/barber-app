@@ -13,7 +13,7 @@ function Book() {
 	const [selectedServiceIndex, setSelectedServiceIndex] = useState<number>(-1);
 	const [isServiceSelected, setIsServiceSelected] = useState("");
 	const [selectedDate, setSelectedDate] = useState(new Date());
-	const [selectedTime, setSelectedTime] = useState("10:00"); // Default time
+	const [selectedTime, setSelectedTime] = useState(""); // Default time
 	const [currentUser, setCurrentUser] = useState<UserVM|null>(null);
 	useEffect( () => {
 	  const fetchUser = async () => {
@@ -27,7 +27,7 @@ function Book() {
 		}
 	  };
 	  fetchUser()
-	},[])
+	},[currentUser])
 
 
 	const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {

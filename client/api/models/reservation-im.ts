@@ -48,11 +48,17 @@ export interface ReservationIM {
      * @type {string}
      * @memberof ReservationIM
      */
-    email?: string | null;
+    email: string;
     /**
      * 
      * @type {string}
      * @memberof ReservationIM
      */
     phone: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationIM
+     */
+    service: string;
 }
