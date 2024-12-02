@@ -5,23 +5,32 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import userService from "@/services/user-service"
 import { UserVM } from "@/api/models/user-vm";
-useEffect( () => {
-  const fetchUser = async () => {
-    try {
-      const currentUser = await userService.makeUserCurrentGetRequest();
-    } catch (error) {
-      console.error("Error fetching current user:", error);
-    }
-  };
-  fetchUser()
-},[])
-
 function Book() {
+	
 	const [isDisabled, setIsDisabled] = useState(true);
 	const [selectedServiceIndex, setSelectedServiceIndex] = useState<number>(-1);
 	const [isServiceSelected, setIsServiceSelected] = useState("");
 	const [selectedDate, setSelectedDate] = useState(new Date());
 	const [selectedTime, setSelectedTime] = useState("10:00"); // Default time
+	const [currentUser, setCurrentUser] = useState<UserVM>({}); // Default time
+	useEffect( () => {
+	  const fetchUser = async () => {
+		try {
+		  const response = await userService.makeUserCurrentGetRequest();
+		  setCurrentUser({
+			id: response.id,
+			email: response.email,
+			firstName: response?.firstName,
+			lastName: response.lastName,
+			phoneNumber: response.phoneNumber,
+		  });
+		} catch (error) {
+		  console.error("Error fetching current user:", error);
+		}
+	  };
+	  fetchUser()
+	},[])
+
 
 	const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setSelectedDate(new Date(e.target.value));

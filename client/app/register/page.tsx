@@ -13,15 +13,17 @@ const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
   
 	const firstName = formData.get("firstName") as string | null;
 	const lastName = formData.get("lastName") as string | null;
+	const phoneNumber = formData.get("phoneNumber") as string | null;
 	const email = formData.get("email") as string | null;
 	const password = formData.get("password") as string | null;
   
 	if (email && password && firstName && lastName) {
 	  try {
-		const response = await authenticationService.makeRegisterRequest(email, password);
+		await authenticationService.makeRegisterRequest(email, password);
 		const user: UserUM = {
 			firstName: firstName,
 			lastName: lastName,
+			phoneNumber: phoneNumber,
 		}
 		
 		await userService.makeUserPutRequest(user,email)
@@ -83,6 +85,23 @@ function Register() {
 									name="lastName"
 									className="w-full text-bordo px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-bordo focus:outline-none font-cabinet placeholder-bordo"
 									placeholder="Enter your name"
+									required
+								/>
+							</div>
+
+							<div className="space-y-2 w-[120%] -translate-x-5">
+								<label
+									htmlFor="phoneNumber"
+									className="block text-sm text-bordo font-cabinet font-bold"
+								>
+									Phone{" "}
+								</label>
+								<input
+									type="tel"
+									id="text"
+									name="phoneNumber"
+									className="w-full text-bordo px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-bordo focus:outline-none font-cabinet placeholder-bordo"
+									placeholder="Enter your phone"
 									required
 								/>
 							</div>

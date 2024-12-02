@@ -30,6 +30,7 @@ public class UserService : IUserService
 
         user.FirstName = newUserInfo.FirstName;
         user.LastName = newUserInfo.LastName;
+        user.PhoneNumber = newUserInfo.PhoneNumber; 
 
         await this.userManager.UpdateAsync(user);
         return true;
