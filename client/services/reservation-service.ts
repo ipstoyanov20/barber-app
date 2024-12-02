@@ -1,4 +1,4 @@
-import { TimeSpan, Reservation, ReservationApi, } from "@/api";
+import { TimeSpan, Reservation, ReservationIM, ReservationApi, } from "@/api";
 import { WebApiService } from "./web-api-service";
 import { AxiosResponse } from "axios";
  export class ReservationService extends WebApiService {
@@ -7,7 +7,12 @@ import { AxiosResponse } from "axios";
         super();
         this.reservationApi = new ReservationApi();
     }
-    // public async makeReservationRequest(reservation: Reservation): Promise<AxiosResponse<Reservation, any>> {
-    //     return await this.reservationApi.reservationPost(reservation, this.generateHeader());
-    // }
+    public async makeReservationIdGetRequest(userId:string): Promise<AxiosResponse<Reservation, any>> {
+        return await this.reservationApi.reservationIdGet(userId, this.generateHeader());
+    }
+    public async makeReservationPostRequest(userId:string): Promise<AxiosResponse<Reservation, any>> {
+        return await this.reservationApi.(userId, this.generateHeader());
+    }
  }
+ const reservationService = new ReservationService();
+ export default reservationService;

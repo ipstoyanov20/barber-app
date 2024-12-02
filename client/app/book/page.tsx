@@ -4,6 +4,7 @@ import Navbar from "@/components/navbar";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import userService from "@/services/user-service"
+import reservationService from "@/services/reservation-service"
 import { UserVM } from "@/api/models/user-vm";
 function Book() {
 	
@@ -12,18 +13,14 @@ function Book() {
 	const [isServiceSelected, setIsServiceSelected] = useState("");
 	const [selectedDate, setSelectedDate] = useState(new Date());
 	const [selectedTime, setSelectedTime] = useState("10:00"); // Default time
-	const [currentUser, setCurrentUser] = useState<UserVM>({}); // Default time
+	const [currentUser, setCurrentUser] = useState<UserVM|null>(null);
 	useEffect( () => {
 	  const fetchUser = async () => {
 		try {
 		  const response: any = await userService.makeUserCurrentGetRequest();
-		  setCurrentUser({
-			id: response.id,
-			email: response.email,
-			firstName: response.firstName,
-			lastName: response.lastName,
-			phoneNumber: response.phoneNumber,
-		  });
+		  console.log(response.data);
+		  setCurrentUser(response.data);
+			console.log(currentUser);
 		} catch (error) {
 		  console.error("Error fetching current user:", error);
 		}
@@ -41,12 +38,11 @@ function Book() {
 	};
 
 	const handleBackToService = () => {
-		// Reset the state, but retain the previously selected service
 		setIsServiceSelected("");
 	};
 
-	const handleSubmit = () => {
-		
+	const handleSubmit = async () => {
+		await 
 		setIsServiceSelected("");
 	};
 
@@ -108,7 +104,11 @@ function Book() {
 			<Navbar />
 			<main className="w-screen relative h-screen grid place-items-center">
 				<h1 className="absolute z-20 left-[10%] top-[15%] font-cabinet font-bold text-bordo text-7xl">
-					<Link className="nav-link relative" onClick={handleBackToService} href="">
+					<Link
+						className="nav-link relative"
+						onClick={handleBackToService}
+						href=""
+					>
 						Services
 					</Link>
 					<span className="text-black"> \ </span>{" "}
@@ -168,36 +168,42 @@ function Book() {
 								{/* Summary of the selected date and time on the right */}
 								<div className="p-4 bg-white h-full flex justify-center items-start flex-col w-full">
 									<span className="font-cabinet w-full h-full">
+										<h3 className="font-semibold text-xl text-center text-bordo">
+											Your appointment
+										</h3>
+										<div className="border-b mt-5 rounded-t-xl border-bordo relative pb-4 mb-4 hover:bg-[#F8F9FA] transition-all last:border-none last:mb-0 cursor-pointer">
+											<h2 className="font-cabinet text-center font-bold mb-3 text-2xl text-gray-800">
+												{services[selectedServiceIndex]?.title}
+											</h2>
+											<p className="font-cabinet text-xl text-gray-600">
+												<strong>Duration:</strong>{" "}
+												{services[selectedServiceIndex]?.duration}
+											</p>
+											<p className="font-cabinet text-xl text-gray-600">
+												<strong>Description:</strong>{" "}
+												{services[selectedServiceIndex]?.description}
+											</p>
+											<p className="font-cabinet text-xl text-gray-600">
+												<strong>Price:</strong>{" "}
+												{services[selectedServiceIndex]?.price}
+											</p>
+										</div>
+										<p className="mt-2 font-cabinet text-bordo text-xl">
+											Date: {selectedDate.toLocaleDateString()}
+										</p>
+										<p className="mt-1 font-cabinet text-bordo text-xl">
+											Hour: {selectedTime}
+										</p>
 
-									<h3 className="font-semibold text-xl text-center text-bordo">
-										Your appointment
-									</h3>
-									<div className="border-b mt-5 rounded-t-xl border-bordo relative pb-4 mb-4 hover:bg-[#F8F9FA] transition-all last:border-none last:mb-0 cursor-pointer">
-										<h2 className="font-cabinet text-center font-bold mb-3 text-2xl text-gray-800">
-											{services[selectedServiceIndex]?.title}
-										</h2>
-										<p className="font-cabinet text-xl text-gray-600">
-											<strong>Duration:</strong>{" "}
-											{services[selectedServiceIndex]?.duration}
+										<p className="mt-2 font-cabinet absolute right-5 bottom-[22%] 2xl:bottom-[27%] text-bordo text-xl">
+											Phone: {currentUser?.phoneNumber}
 										</p>
-										<p className="font-cabinet text-xl text-gray-600">
-											<strong>Description:</strong>{" "}
-											{services[selectedServiceIndex]?.description}
+										<p className="mt-1 font-cabinet absolute right-5 bottom-[15%] 2xl:bottom-[21%] text-bordo text-xl">
+											Full name: {currentUser?.firstName} {currentUser?.lastName}
 										</p>
-										<p className="font-cabinet text-xl text-gray-600">
-											<strong>Price:</strong>{" "}
-											{services[selectedServiceIndex]?.price}
+										<p className="mt-1 font-cabinet absolute right-5 bottom-[8%] 2xl:bottom-[15%] text-bordo text-xl">
+											Email: {currentUser?.email}
 										</p>
-									</div>
-									<p className="mt-2 text-bordo text-xl">
-										Date: {selectedDate.toLocaleDateString()}
-									</p>
-									<p className="mt-1 text-bordo text-xl">Hour: {selectedTime}</p>
-
-									<p className="mt-2 absolute right-[20%] bottom-20 text-bordo text-xl">
-										Date: {selectedDate.toLocaleDateString()}
-									</p>
-									<p className="mt-1 absolute right-[20%] bottom-10 text-bordo text-xl">Hour: {selectedTime}</p>
 									</span>
 								</div>
 							</div>
@@ -236,13 +242,20 @@ function Book() {
 					</div>
 				</section>
 				<button
-					onClick={() => {isServiceSelected ? handleSubmit() : setIsServiceSelected("When?")}}
+					onClick={() => {
+						isServiceSelected ? handleSubmit() : setIsServiceSelected("When?");
+					}}
 					disabled={isDisabled}
 					className={`font-cabinet text-2xl font-bold px-5 py-3 rounded-xl absolute top-[80%] left-[85.5%] 
 					${
 						isDisabled
 							? "bg-gray-400 text-[#F8F9FA] cursor-not-allowed"
 							: "bg-bordo text-white cursor-pointer"
+					}
+					${
+						isServiceSelected
+							? "-translate-x-20"
+							: ""
 					}`}
 				>
 					{isServiceSelected ? "Make a book" : "Next"}
