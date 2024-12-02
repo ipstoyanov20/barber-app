@@ -2,27 +2,31 @@
 import { ResponseData } from "@/services/apiTypes";
 // import { useEffect } from "react";
 import authenticationService from "@/services/authentication-service";
+import userService from "@/services/user-service";
 import storageService from "@/services/storage-service";
+import { UserUM } from "@/api/models/user-um";
 
 const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 	event.preventDefault();
   
 	const formData = new FormData(event.target as HTMLFormElement);
   
+	const firstName = formData.get("firstName") as string | null;
+	const lastName = formData.get("lastName") as string | null;
 	const email = formData.get("email") as string | null;
 	const password = formData.get("password") as string | null;
   
-	if (email && password) {
+	if (email && password && firstName && lastName) {
 	  try {
 		const response = await authenticationService.makeRegisterRequest(email, password);
-		const responseData: ResponseData = response.data as unknown as ResponseData;
+		const user: UserUM = {
+			firstName: firstName,
+			lastName: lastName,
+		}
+		
+		await userService.makeUserPutRequest(user,email)
   
-		// Save tokens and expiration
-		storageService.saveAccessToken(responseData.accessToken);
-		storageService.saveRefreshToken(responseData.refreshToken);
-		storageService.saveTokenExpiresDate(responseData.expiration);
-  
-		// Redirect to dashboard
+		// Redirect to login
 		window.location.href = "/login";
 	  } catch (error: any) {
 		// Display error message using alert

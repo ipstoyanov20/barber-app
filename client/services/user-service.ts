@@ -3,7 +3,7 @@ import {UserVM} from "@/api";
 import {WebApiService} from "@/services/web-api-service";
 import {AxiosResponse} from "axios";
 import {UserApi} from "@/api/apis/user-api";
-export class UserAddService extends WebApiService {
+export class UserService extends WebApiService {
     userApi: UserApi;
     constructor() {
         super();
@@ -16,3 +16,5 @@ export class UserAddService extends WebApiService {
         return await this.userApi.userCurrentGet(this.generateHeader());
     }
 }
+const userService = new UserService()
+export default userService

@@ -2,7 +2,19 @@
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import userService from "@/services/user-service"
+import { UserVM } from "@/api/models/user-vm";
+useEffect( () => {
+  const fetchUser = async () => {
+    try {
+      const currentUser = await userService.makeUserCurrentGetRequest();
+    } catch (error) {
+      console.error("Error fetching current user:", error);
+    }
+  };
+  fetchUser()
+},[])
 
 function Book() {
 	const [isDisabled, setIsDisabled] = useState(true);
@@ -111,7 +123,7 @@ function Book() {
 						{isServiceSelected ? (
 							<div className="w-full h-full grid grid-cols-2 place-items-center place-content-center font-cabinet">
 								{/* Calendar and Time Picker */}
-								<div className="flex justify-center flex-col mt-6 w-full h-full z-50 translate-x-1/4 translate-y-20">
+								<div className="flex justify-center flex-col mt-6 w-full h-full z-50 translate-x-1/4">
 									{/* Date Picker on the left */}
 									<div className="w-1/2">
 										<h3 className="font-semibold text-xl text-bordo">
@@ -146,7 +158,7 @@ function Book() {
 
 								{/* Summary of the selected date and time on the right */}
 								<div className="p-4 bg-white h-full flex justify-center items-start flex-col w-full">
-									<span className="font-cabinet translate-y-28">
+									<span className="font-cabinet w-full h-full">
 
 									<h3 className="font-semibold text-xl text-center text-bordo">
 										Your appointment

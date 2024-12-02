@@ -133,3 +133,9 @@ input[type="checkbox"]:not(:checked) + .custom-checkbox {
   background-color:#FAF5F1;
   left: 0;
 }
+
+.appoint{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
