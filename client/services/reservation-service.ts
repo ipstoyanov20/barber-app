@@ -10,8 +10,8 @@ import { AxiosResponse } from "axios";
     public async makeReservationIdGetRequest(userId:string): Promise<AxiosResponse<Reservation, any>> {
         return await this.reservationApi.reservationIdGet(userId, this.generateHeader());
     }
-    public async makeReservationPostRequest(userId:string): Promise<AxiosResponse<Reservation, any>> {
-        return await this.reservationApi.(userId, this.generateHeader());
+    public async makeReservationPostRequest(reservationIM: ReservationIM, userId: string): Promise<AxiosResponse<Reservation, any>> {
+        return await this.reservationApi.reservationPost(reservationIM, userId, this.generateHeader());
     }
  }
  const reservationService = new ReservationService();

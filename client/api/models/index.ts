@@ -10,6 +10,7 @@ export * from './refresh-request';
 export * from './register-request';
 export * from './resend-confirmation-email-request';
 export * from './reservation';
+export * from './reservation-im';
 export * from './reset-password-request';
 export * from './time-span';
 export * from './two-factor-request';
