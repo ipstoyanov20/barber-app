@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import userService from "@/services/user-service"
 import reservationService from "@/services/reservation-service"
 import { UserVM } from "@/api/models/user-vm";
+import { ReservationIM } from "@/api";
 function Book() {
 	
 	const [isDisabled, setIsDisabled] = useState(true);
@@ -42,8 +43,26 @@ function Book() {
 	};
 
 	const handleSubmit = async () => {
-		await 
-		setIsServiceSelected("");
+		const reservationData:ReservationIM = {
+			firstName: currentUser?.firstName || "",
+			lastName: currentUser?.lastName || "",
+			date: {
+				year: selectedDate.getFullYear(),
+				month: selectedDate.getMonth() + 1,
+				day: selectedDate.getDate(),
+			},
+			time: {
+				hours: parseInt(selectedTime.split(":")[0]),
+				minutes: parseInt(selectedTime.split(":")[1]),
+			},
+			phone: currentUser?.phoneNumber || "",
+			email: currentUser?.email || "",
+			service: services[selectedServiceIndex].title,
+		};
+		await reservationService.makeReservationPostRequest(
+			reservationData,
+			currentUser?.id || "",
+		);
 	};
 
 	const handleToggle = (index: number) => {

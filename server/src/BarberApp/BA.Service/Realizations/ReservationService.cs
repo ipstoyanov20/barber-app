@@ -30,6 +30,7 @@ public class ReservationService : IReservationService
             Time = reservationIM.Time,
             Email = reservationIM.Email,
             Phone = reservationIM.Phone,
+            Service = reservationIM.Service,
             UserId = userId
         };
         await this.context.Reservations.AddAsync(reservation);
