@@ -47,7 +47,7 @@ function Navbar() {
 				{/* Right-side navigation items */}
 				<div className="flex space-x-5 items-center">
 					<li className="p-3 rounded-xl mr-5">
-						<Link href="/book">
+						<Link href={storageService.retrieveAccessToken() ? '/book' : '/login'}>
 							<p className="z-50 font-bold font-cabinet cursor-pointer px-5 py-2 text-[#FAF5F1] bg-bordo transition-all hover:bg-bordo/90 relative tracking-wide text-xl">
 								Book Now
 							</p>
