@@ -1,9 +1,47 @@
 "use client"
 
 import Link from "next/link";
+import { useRef,useEffect } from "react";
+import { gsap } from "gsap";
+import SplitType from "split-type";
+
 
 function Hero() {
-    return (
+	const textPerfectRef = useRef(null)
+	const textExRef = useRef(null)
+	useEffect(() => {
+    textPerfectRef.current ? new SplitType(textPerfectRef.current) : null;
+    textExRef.current ? new SplitType(textExRef.current) : null;
+    let PerfectChars = document.querySelectorAll("h1 .char");
+    let ExChars = document.querySelectorAll("h2 .char");
+
+	
+    for (let i = 0; i < PerfectChars.length; i++) {
+      PerfectChars[i].classList.add("translate-y-[200%]");
+    }
+
+    for (let i = 0; i < ExChars.length; i++) {
+      ExChars[i].classList.add("translate-y-[200%]");
+    }
+
+    gsap.to(PerfectChars, {
+      y: 0,
+      stagger: 0.05,
+      duration: 0.6,
+      opacity: 1,
+      delay: 0,
+    });
+    
+	gsap.to(ExChars, {
+      y: 0,
+      stagger: 0.05,
+      duration: 0.6,
+      opacity: 1,
+      delay: 0.5,
+    });
+
+  }, []);
+		return (
 			<section className="relative grid grid-cols-2 w-screen h-screen">
 				<div className="w-full z-20 bg-white text-black p-6 grid place-content-center place-items-start">
 					<span className="translate-x-[20%] -translate-y-0">
@@ -12,11 +50,11 @@ function Hero() {
 						</p>
 						<h1 className="whitespace-nowrap font-cabinet text-9xl font-bold mb-6 leading-none">
 							Your Pursuit of{" "}
-							<span className="text-bordo inline-block rounded-xl backdrop-blur-xl backdrop-filter bg-opacity-10">
+							<span ref={textPerfectRef} className="translate-y-6 overflow-hidden text-bordo inline-block rounded-xl backdrop-blur-xl backdrop-filter bg-opacity-10">
 								Perfection
 							</span>{" "}
 							<br /> Our Work of{" "}
-							<span className="text-bordo inline-block mb-1 rounded-xl backdrop-blur-xl backdrop-filter bg-opacity-10">
+							<span  ref={textExRef}  className="overflow-hidden translate-y-8 text-bordo inline-block mb-1 rounded-xl backdrop-blur-xl backdrop-filter bg-opacity-10">
 								Excellence
 							</span>
 						</h1>
