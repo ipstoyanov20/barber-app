@@ -26,6 +26,47 @@ export const ReservationApiAxiosParamCreator = function (configuration?: Configu
     return {
         /**
          * 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        reservationGet: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/Reservation`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, 'https://example.com');
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions :AxiosRequestConfig = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication Bearer required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+                    ? await configuration.apiKey("Authorization")
+                    : await configuration.apiKey;
+                localVarHeaderParameter["Authorization"] = localVarApiKeyValue;
+            }
+
+            const query = new URLSearchParams(localVarUrlObj.search);
+            for (const key in localVarQueryParameter) {
+                query.set(key, localVarQueryParameter[key]);
+            }
+            for (const key in options.params) {
+                query.set(key, options.params[key]);
+            }
+            localVarUrlObj.search = (new URLSearchParams(query)).toString();
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @param {ReservationIM} [body] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -70,47 +111,6 @@ export const ReservationApiAxiosParamCreator = function (configuration?: Configu
                 options: localVarRequestOptions,
             };
         },
-        /**
-         * 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        reservationUserIdGet: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/Reservation/userId`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, 'https://example.com');
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions :AxiosRequestConfig = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication Bearer required
-            if (configuration && configuration.apiKey) {
-                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
-                    ? await configuration.apiKey("Authorization")
-                    : await configuration.apiKey;
-                localVarHeaderParameter["Authorization"] = localVarApiKeyValue;
-            }
-
-            const query = new URLSearchParams(localVarUrlObj.search);
-            for (const key in localVarQueryParameter) {
-                query.set(key, localVarQueryParameter[key]);
-            }
-            for (const key in options.params) {
-                query.set(key, options.params[key]);
-            }
-            localVarUrlObj.search = (new URLSearchParams(query)).toString();
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
-                options: localVarRequestOptions,
-            };
-        },
     }
 };
 
@@ -122,12 +122,11 @@ export const ReservationApiFp = function(configuration?: Configuration) {
     return {
         /**
          * 
-         * @param {ReservationIM} [body] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async reservationPost(body?: ReservationIM, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ReservationVM>>> {
-            const localVarAxiosArgs = await ReservationApiAxiosParamCreator(configuration).reservationPost(body, options);
+        async reservationGet(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<ReservationVM>>>> {
+            const localVarAxiosArgs = await ReservationApiAxiosParamCreator(configuration).reservationGet(options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -135,11 +134,12 @@ export const ReservationApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @param {ReservationIM} [body] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async reservationUserIdGet(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<ReservationVM>>>> {
-            const localVarAxiosArgs = await ReservationApiAxiosParamCreator(configuration).reservationUserIdGet(options);
+        async reservationPost(body?: ReservationIM, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<ReservationVM>>> {
+            const localVarAxiosArgs = await ReservationApiAxiosParamCreator(configuration).reservationPost(body, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -156,20 +156,20 @@ export const ReservationApiFactory = function (configuration?: Configuration, ba
     return {
         /**
          * 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async reservationGet(options?: AxiosRequestConfig): Promise<AxiosResponse<Array<ReservationVM>>> {
+            return ReservationApiFp(configuration).reservationGet(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @param {ReservationIM} [body] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
         async reservationPost(body?: ReservationIM, options?: AxiosRequestConfig): Promise<AxiosResponse<ReservationVM>> {
             return ReservationApiFp(configuration).reservationPost(body, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async reservationUserIdGet(options?: AxiosRequestConfig): Promise<AxiosResponse<Array<ReservationVM>>> {
-            return ReservationApiFp(configuration).reservationUserIdGet(options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -183,6 +183,15 @@ export const ReservationApiFactory = function (configuration?: Configuration, ba
 export class ReservationApi extends BaseAPI {
     /**
      * 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ReservationApi
+     */
+    public async reservationGet(options?: AxiosRequestConfig) : Promise<AxiosResponse<Array<ReservationVM>>> {
+        return ReservationApiFp(this.configuration).reservationGet(options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * 
      * @param {ReservationIM} [body] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -190,14 +199,5 @@ export class ReservationApi extends BaseAPI {
      */
     public async reservationPost(body?: ReservationIM, options?: AxiosRequestConfig) : Promise<AxiosResponse<ReservationVM>> {
         return ReservationApiFp(this.configuration).reservationPost(body, options).then((request) => request(this.axios, this.basePath));
-    }
-    /**
-     * 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ReservationApi
-     */
-    public async reservationUserIdGet(options?: AxiosRequestConfig) : Promise<AxiosResponse<Array<ReservationVM>>> {
-        return ReservationApiFp(this.configuration).reservationUserIdGet(options).then((request) => request(this.axios, this.basePath));
     }
 }

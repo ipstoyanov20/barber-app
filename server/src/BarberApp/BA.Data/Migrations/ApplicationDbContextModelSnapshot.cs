@@ -52,9 +52,8 @@ namespace BA.Data.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("Time")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("Time")
+                        .HasColumnType("integer");
 
                     b.Property<string>("UserId")
                         .IsRequired()

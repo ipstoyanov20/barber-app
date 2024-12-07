@@ -8,7 +8,7 @@ import { AxiosResponse } from "axios";
         this.reservationApi = new ReservationApi();
     }
     public async makeReservationIdGetRequest(): Promise<AxiosResponse<ReservationVM[], any>> {
-        return await this.reservationApi.reservationUserIdGet(this.generateHeader());
+        return await this.reservationApi.reservationGet(this.generateHeader());
     }
     public async makeReservationPostRequest(reservationIM: ReservationIM): Promise<AxiosResponse<ReservationVM, any>> {
         return await this.reservationApi.reservationPost(reservationIM, this.generateHeader());

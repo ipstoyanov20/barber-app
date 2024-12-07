@@ -27,7 +27,7 @@ public class ReservationService : IReservationService
 
     public async Task<IEnumerable<ReservationVM>> GetAllReservationsAsync(string userId)
     {
-        var reservation = await this.context.Reservations.Where(r=>r.UserId == userId).ToListAsync();
+        var reservation =  await this.context.Reservations.Where(r=>r.UserId == userId).ToListAsync();
         return this.mapper.Map<IEnumerable<ReservationVM>>(reservation);
     }
 
