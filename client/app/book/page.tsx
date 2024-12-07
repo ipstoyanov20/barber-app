@@ -21,6 +21,7 @@ function Book() {
 		  const response: any = await userService.makeUserCurrentGetRequest();
 		  //make foreach and check if any resevation have the same date and time and tell which one
 		  setCurrentUser(response.data);
+		  console.log(response.data);
 		} catch (error) {
 		  console.error("Error fetching current user:", error);
 		}
@@ -45,8 +46,6 @@ function Book() {
 			  setIsDisabled(false);
 			}
 
-
-			setCurrentUser(response.data);
 		  } catch (error) {
 			console.error("Error fetching reservations:", error);
 		  }

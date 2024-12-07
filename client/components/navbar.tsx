@@ -5,20 +5,22 @@ import AuthGuard from "@/components/auth-guard"; // Import AuthGuard
 import Link from "next/link";
 import Image from "next/image"; // Using Next.js Image for optimization
 import storageService from "@/services/storage-service";
+import { useRouter } from "next/navigation";
 
 function Navbar() {
-  const [isLogged, setIsLogged] = useState<boolean | null>(null);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-  const toggleDropdown = () => {
-    setIsDropdownOpen((prevState) => !prevState);
-	console.log("toggleDropdown", isDropdownOpen);
-  };
-  const logout = () => {
-	storageService.deleteUserData();
-	setIsLogged(false);
-  };
-  return (
+	const [isLogged, setIsLogged] = useState<boolean | null>(null);
+	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+	const router = useRouter();
+	const toggleDropdown = () => {
+		setIsDropdownOpen((prevState) => !prevState);
+		console.log("toggleDropdown", isDropdownOpen);
+	};
+	const logout = () => {
+		storageService.deleteUserData();
+		setIsLogged(false);
+		router.push("/");
+	};
+	return (
 		<nav className="fixed top-0 w-full z-[50] bg-transparent text-black backdrop-blur-3xl bg-opacity-15 backdrop-filter">
 			{/* AuthGuard manages login state */}
 			<AuthGuard onAuthChange={setIsLogged} />
@@ -47,7 +49,9 @@ function Navbar() {
 				{/* Right-side navigation items */}
 				<div className="flex space-x-5 items-center">
 					<li className="p-3 rounded-xl mr-5">
-						<Link href={storageService.retrieveAccessToken() ? '/book' : '/login'}>
+						<Link
+							href={storageService.retrieveAccessToken() ? "/book" : "/login"}
+						>
 							<p className="z-50 font-bold font-cabinet cursor-pointer px-5 py-2 text-[#FAF5F1] bg-bordo transition-all hover:bg-bordo/90 relative tracking-wide text-xl">
 								Book Now
 							</p>
