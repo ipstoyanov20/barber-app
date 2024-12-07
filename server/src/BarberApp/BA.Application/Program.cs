@@ -14,13 +14,20 @@ using Microsoft.OpenApi.Models;
 
 namespace BA.Application;
 
+/// <summary>
+/// Entry point for the Barber App API application.
+/// </summary>
 public class Program
 {
+    /// <summary>
+    /// Main method to initialize and run the application.
+    /// </summary>
+    /// <param name="args">Command-line arguments.</param>
     public static async Task Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        
+        // Add Swagger/OpenAPI support
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen(options =>
         {
@@ -56,20 +63,21 @@ public class Program
             {
                 Version = "v1",
                 Title = "Barber App API",
-                Description = "An API for Barber App ",
+                Description = "An API for Barber App",
             });
 
         });
 
+        // Configure the database connection
         var connectionString = ConnectionHelper.GetConnectionString(builder.Configuration);
         builder.Services.AddDbContext<ApplicationDbContext>(options =>
             options.UseNpgsql(connectionString));
 
-        
+        // Add services and middleware
         builder.Services.AddAuthorization();
         builder.Services.AddIdentityApiEndpoints<User>()
             .AddEntityFrameworkStores<ApplicationDbContext>();
-        
+
         builder.Services.AddCors(options =>
         {
             options.AddDefaultPolicy(builder =>
@@ -78,18 +86,18 @@ public class Program
                     .AllowAnyMethod()
                     .AllowAnyHeader());
         });
-        
+
         builder.Services.AddServices();
         builder.Services.AddControllers();
         builder.Services.AddHttpContextAccessor();
 
+        // Configure AutoMapper
         builder.Services.AddAutoMapper(typeof(MappingProfile));
-        
+
         var app = builder.Build();
         app.UseCors();
 
-
-        // Configure the HTTP request pipeline.
+        // Configure the HTTP request pipeline
         if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
         {
             app.UseSwagger();
@@ -99,8 +107,9 @@ public class Program
             });
         }
 
+        // Map Identity API endpoints
         app.MapIdentityApi<User>();
-        
+
         app.UseHttpsRedirection();
 
         app.UseAuthorization();

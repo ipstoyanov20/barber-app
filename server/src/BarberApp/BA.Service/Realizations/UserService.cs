@@ -7,11 +7,19 @@ using Microsoft.AspNetCore.Identity;
 
 namespace BA.Service.Realizations;
 
+/// <summary>
+/// Represents the service for managing users, implementing <see cref="IUserService"/>.
+/// </summary>
 public class UserService : IUserService
 {
     private readonly UserManager<User> userManager;
     private readonly IMapper mapper;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="UserService"/> class.
+    /// </summary>
+    /// <param name="userManager">The user manager for handling user operations.</param>
+    /// <param name="mapper">The AutoMapper instance for mapping objects.</param>
     public UserService(
         UserManager<User> userManager, IMapper mapper)
     {
@@ -19,6 +27,7 @@ public class UserService : IUserService
         this.mapper = mapper;
     }
 
+    /// <inheritdoc/>
     public async Task<bool> UpdateUserAsync(string userEmail, UserUM newUserInfo)
     {
         var user = await this.userManager.FindByEmailAsync(userEmail);
@@ -36,6 +45,7 @@ public class UserService : IUserService
         return true;
     }
     
+    /// <inheritdoc/>
     public async Task<UserVM> GetUserByIdAsync(string userId)
     {
         var user = await this.userManager.FindByIdAsync(userId);
@@ -47,5 +57,4 @@ public class UserService : IUserService
 
         return this.mapper.Map<UserVM>(user);
     }
-
 }

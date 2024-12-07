@@ -4,8 +4,17 @@ using Microsoft.Extensions.Configuration;
 
 namespace BA.Application.Utility;
 
+/// <summary>
+/// Helper class to manage database connection strings.
+/// </summary>
 public static class ConnectionHelper
 {
+    /// <summary>
+    /// Retrieves the connection string from the configuration or environment variables.
+    /// </summary>
+    /// <param name="configuration">The application configuration object.</param>
+    /// <returns>The resolved connection string.</returns>
+    /// <exception cref="InvalidOperationException">Thrown if the connection string cannot be found.</exception>
     public static string GetConnectionString(IConfiguration configuration)
     {
         // Attempt to get the connection string directly from configuration
@@ -30,7 +39,11 @@ public static class ConnectionHelper
         return connectionString;
     }
 
-    // Build the connection string from the environment variable (e.g., Heroku).
+    /// <summary>
+    /// Builds a connection string from a database URL.
+    /// </summary>
+    /// <param name="databaseUrl">The database URL (e.g., from environment variables).</param>
+    /// <returns>The constructed connection string.</returns>
     private static string BuildConnectionString(string databaseUrl)
     {
         var databaseUri = new Uri(databaseUrl);
@@ -49,5 +62,4 @@ public static class ConnectionHelper
 
         return builder.ToString();
     }
-
 }
