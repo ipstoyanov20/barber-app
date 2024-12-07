@@ -19,6 +19,5 @@ public class ReservationIM
     public string Phone { get; set; }
     
     [Required]
-    public string Service 
-    { get; set; }
+    public string Service { get; set; }
 }
