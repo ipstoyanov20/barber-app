@@ -20,7 +20,7 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        builder.Services.AddControllers();
+        
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen(options =>
         {
@@ -80,6 +80,7 @@ public class Program
         });
         
         builder.Services.AddServices();
+        builder.Services.AddControllers();
         builder.Services.AddHttpContextAccessor();
 
         builder.Services.AddAutoMapper(typeof(MappingProfile));

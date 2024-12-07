@@ -9,7 +9,7 @@ namespace BA.Application.Controllers;
 [ApiController]
 [Route("[controller]")]
 [Authorize]
-public class ReservationController: ControllerBase
+public class ReservationController : ControllerBase
 {
     private readonly ReservationService reservationService;
 
@@ -20,7 +20,7 @@ public class ReservationController: ControllerBase
 
     [HttpGet("Id")]
 
-    public async Task<ActionResult<Reservation?>> GetReservationByIdAsync(string? Id)
+    public async Task<ActionResult<Reservation?>> GetReservationByIdAsync(string Id)
     {
         return await this.reservationService.GetReservationByIdAsync(Id);
     }

@@ -1,41 +1,39 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using AutoMapper;
 using BA.Common.Models.Reservation;
 using BA.Data.Data;
 using BA.Data.Models;
 using BA.Service.Abstractions;
 
-namespace BA.Service.Realizations;
-
-public class ReservationService : IReservationService
+namespace BA.Service.Realizations
 {
-    private readonly ApplicationDbContext context;
-    public ReservationService(ApplicationDbContext context)
+    public class ReservationService : IReservationService
     {
-        this.context = context;
-    }
-    public async Task<Reservation?> GetReservationByIdAsync(string Id)
-    {
-        var reservation = await this.context.Reservations.FindAsync(Id);
-        return reservation;
-    }
+        private readonly ApplicationDbContext context;
+        private readonly IMapper _mapper;
 
-    public async Task<Reservation> CreateReservationAsync(ReservationIM reservationIM, string userId)
-    {
-        Reservation reservation = new Reservation()
+        public ReservationService(ApplicationDbContext context, IMapper mapper)
         {
-            FirstName = reservationIM.FirstName,
-            LastName = reservationIM.LastName,
-            Date = reservationIM.Date,
-            Time = reservationIM.Time,
-            Email = reservationIM.Email,
-            Phone = reservationIM.Phone,
-            Service = reservationIM.Service,
-            UserId = userId
-        };
-        await this.context.Reservations.AddAsync(reservation);
-        await this.context.SaveChangesAsync();
+            this.context = context;
+            _mapper = mapper;
+        }
 
-        return reservation;
+        public async Task<Reservation?> GetReservationByIdAsync(string Id)
+        {
+            var reservation = await this.context.Reservations.FindAsync(Id);
+            return reservation;
+        }
+
+        public async Task<Reservation> CreateReservationAsync(ReservationIM reservationIM, string userId)
+        {
+            // Use AutoMapper to map from ReservationIM to Reservation
+            var reservation = _mapper.Map<Reservation>(reservationIM);
+            reservation.UserId = userId;  // Set the userId manually if needed
+
+            await this.context.Reservations.AddAsync(reservation);
+            await this.context.SaveChangesAsync();
+
+            return reservation;
+        }
     }
 }
