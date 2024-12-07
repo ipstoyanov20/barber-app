@@ -19,7 +19,7 @@ public class Reservation
     public string Date { get; set; } = String.Empty;
 
     [Required]
-    public string Time { get; set; } = String.Empty;
+    public int Time { get; set; }
     
     
     public string Email { get; set; } = String.Empty;

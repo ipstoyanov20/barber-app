@@ -14,7 +14,7 @@ public class ReservationVM
     public string Date { get; set; }
 
     [Required]
-    public string Time { get; set; }
+    public int Time { get; set; }
     
     [Required]
     public string Email { get; set; } = String.Empty;

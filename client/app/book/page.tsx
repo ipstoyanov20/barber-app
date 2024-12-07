@@ -46,15 +46,8 @@ function Book() {
 		const reservationData:ReservationIM = {
 			firstName: currentUser?.firstName || "",
 			lastName: currentUser?.lastName || "",
-			date: {
-				year: selectedDate.getFullYear(),
-				month: selectedDate.getMonth() + 1,
-				day: selectedDate.getDate(),
-			},
-			time: {
-				hours: parseInt(selectedTime.split(":")[0]),
-				minutes: parseInt(selectedTime.split(":")[1]),
-			},
+			date: selectedDate.toISOString().split("T")[0],
+			time: parseInt(selectedTime.split(":")[0]),
 			phone: currentUser?.phoneNumber || "",
 			email: currentUser?.email || "",
 			service: services[selectedServiceIndex].title,
