@@ -10,46 +10,62 @@ function Login() {
 	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 		setIsLoading(true);
-
+	  
 		const formData = new FormData(event.target as HTMLFormElement);
-
+	  
 		const email = formData.get("email") as string | null;
 		const password = formData.get("password") as string | null;
-
+	  
 		if (email && password) {
-			try {
-				const response = await authenticationService.makeLoginRequest(
-					email,
-					password,
-				);
-				const responseData: ResponseData = response.data as ResponseData;
-
-				// Save tokens and expiration
-				storageService.saveAccessToken(responseData.accessToken);
-				storageService.saveRefreshToken(responseData.refreshToken);
-				storageService.saveTokenExpiresDate(responseData.expiration);
-
-				
-				// Redirect to dashboard
-				window.location.href = "/";
-			} catch (error: any) {
-				// Display error message using alert
-				const message =
-					error.response?.data?.message ||
-					error.response?.data?.errors?.[
-						Object.keys(error.response?.data.errors)[0]
-					] ||
-					"An unexpected error occurred";
-
-				alert(`Verification error: ${message}`);
-			} finally {
-				// Always reset loading state in both success and failure
-				setIsLoading(false);
+		  try {
+			const response = await authenticationService.makeLoginRequest(
+			  email,
+			  password,
+			);
+			const responseData: ResponseData = response.data as ResponseData;
+	  
+			// Save tokens and expiration
+			storageService.saveAccessToken(responseData.accessToken);
+			storageService.saveRefreshToken(responseData.refreshToken);
+			storageService.saveTokenExpiresDate(responseData.expiration);
+	  
+			// Redirect to dashboard
+			window.location.href = "/";
+		  } catch (error: unknown) {
+			// Display error message using alert
+			let message = "An unexpected error occurred";
+	  
+			if (
+			  error &&
+			  typeof error === "object" &&
+			  "response" in error &&
+			  error.response &&
+			  typeof error.response === "object" &&
+			  "data" in error.response &&
+			  error.response.data
+			) {
+			  const data = error.response.data as Record<string, any>;
+	  
+			  if (data.message) {
+				message = data.message;
+			  } else if (data.errors) {
+				const firstKey = Object.keys(data.errors)[0];
+				if (firstKey) {
+				  message = data.errors[firstKey];
+				}
+			  }
 			}
+	  
+			alert(`Verification error: ${message}`);
+		  } finally {
+			// Always reset loading state in both success and failure
+			setIsLoading(false);
+		  }
 		} else {
-			alert("Please provide both email and password.");
+		  alert("Please provide both email and password.");
 		}
-	};
+	  };
+	  
 
 	return (
 		<main className="w-screen h-screen bg-[#FAF5F1]">

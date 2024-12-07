@@ -3,23 +3,23 @@
 import { useEffect, useState } from "react";
 import storageService from "@/services/storage-service";
 
-const AuthGuard = ({ onAuthChange }: { onAuthChange:any }) => {
+const AuthGuard = ({ onAuthChange }: { onAuthChange: (isAuthenticated: boolean) => void }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const checkAuth = async () => {
       const user = storageService.retrieveAccessToken();
-      onAuthChange(!!user); // Notify parent about login status
+      onAuthChange(!!user);
       setIsLoading(false);
     };
     checkAuth();
   }, [onAuthChange]);
 
   if (isLoading) {
-    return null; // No need to block rendering the Navbar
+    return null; 
   }
 
-  return null; // This component just validates, doesn't render anything
+  return null; 
 };
 
 export default AuthGuard;

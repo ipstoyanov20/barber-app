@@ -1,9 +1,6 @@
 "use client"
-import { ResponseData } from "@/services/apiTypes";
-// import { useEffect } from "react";
 import authenticationService from "@/services/authentication-service";
 import userService from "@/services/user-service";
-import storageService from "@/services/storage-service";
 import { UserUM } from "@/api/models/user-um";
 
 const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {

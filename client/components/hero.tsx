@@ -12,8 +12,8 @@ function Hero() {
 	useEffect(() => {
     textPerfectRef.current ? new SplitType(textPerfectRef.current) : null;
     textExRef.current ? new SplitType(textExRef.current) : null;
-    let PerfectChars = document.querySelectorAll("h1 .char");
-    let ExChars = document.querySelectorAll("h2 .char");
+    const PerfectChars = document.querySelectorAll("h1 .char");
+    const ExChars = document.querySelectorAll("h2 .char");
 
 	
     for (let i = 0; i < PerfectChars.length; i++) {
