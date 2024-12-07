@@ -27,7 +27,7 @@ function Book() {
 		}
 	  };
 	  fetchUser()
-	},[currentUser])
+	},[])
 
 
 	const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
