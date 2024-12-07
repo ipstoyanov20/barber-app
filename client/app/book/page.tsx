@@ -44,12 +44,8 @@ function Book() {
 
 	const handleSubmit = async () => {
 		const reservationData:ReservationIM = {
-			firstName: currentUser?.firstName || "",
-			lastName: currentUser?.lastName || "",
 			date: selectedDate.toISOString().split("T")[0],
 			time: parseInt(selectedTime.split(":")[0]),
-			phone: currentUser?.phoneNumber || "",
-			email: currentUser?.email || "",
 			service: services[selectedServiceIndex].title,
 		};
 		await reservationService.makeReservationPostRequest(

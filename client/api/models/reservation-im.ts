@@ -11,8 +11,6 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { DateOnly } from './date-only';
-import { TimeSpan } from './time-span';
 /**
  * 
  * @export
@@ -24,37 +22,13 @@ export interface ReservationIM {
      * @type {string}
      * @memberof ReservationIM
      */
-    firstName: string;
+    date: string;
     /**
      * 
-     * @type {string}
+     * @type {number}
      * @memberof ReservationIM
      */
-    lastName: string;
-    /**
-     * 
-     * @type {DateOnly}
-     * @memberof ReservationIM
-     */
-    date: DateOnly;
-    /**
-     * 
-     * @type {TimeSpan}
-     * @memberof ReservationIM
-     */
-    time: TimeSpan;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReservationIM
-     */
-    email: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReservationIM
-     */
-    phone: string;
+    time: number;
     /**
      * 
      * @type {string}
