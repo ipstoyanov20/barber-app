@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -7,6 +8,7 @@ using BA.Data.Data;
 using BA.Data.Models;
 using BA.Service.Abstractions;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace BA.Service.Realizations;
 
@@ -23,10 +25,10 @@ public class ReservationService : IReservationService
         this.mapper = mapper;
     }
 
-    public async Task<Reservation?> GetReservationByIdAsync(string id)
+    public async Task<IEnumerable<ReservationVM>> GetAllReservationsAsync(string userId)
     {
-        var reservation = await this.context.Reservations.FindAsync(id);
-        return reservation;
+        var reservation = await this.context.Reservations.Where(r=>r.UserId == userId).ToListAsync();
+        return this.mapper.Map<IEnumerable<ReservationVM>>(reservation);
     }
 
     public async Task<ReservationVM> CreateReservationAsync(ReservationIM reservationIm, string userId)

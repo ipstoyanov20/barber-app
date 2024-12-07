@@ -1,11 +1,11 @@
-﻿using System.Threading.Tasks;
-using BA.Data.Models;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using BA.Common.Models.Reservation;
 namespace BA.Service.Abstractions;
 
 public interface IReservationService
 {
-    Task<Reservation?> GetReservationByIdAsync(string id);
+    Task<IEnumerable<ReservationVM>> GetAllReservationsAsync(string userId);
     
     Task<ReservationVM> CreateReservationAsync(ReservationIM reservationIm, string userId);
 }

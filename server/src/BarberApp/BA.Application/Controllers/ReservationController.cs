@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using BA.Common.Models.Reservation;
 using BA.Data.Models;
 using BA.Service.Abstractions;
@@ -20,14 +21,15 @@ public class ReservationController : ControllerBase
         this.currentUser = currentUser;
     }
 
-    [HttpGet("Id")]
+    [HttpGet("userId")]
 
-    public async Task<ActionResult<Reservation?>> GetReservationByIdAsync(string Id)
+    public async Task<ActionResult<IEnumerable<ReservationVM>>> GetAllReservationsAsync()
     {
-        return await this.reservationService.GetReservationByIdAsync(Id);
+        var allReservations = await this.reservationService.GetAllReservationsAsync(this.currentUser.UserId);
+        return Ok(allReservations);
     }
     [HttpPost]
-    public async Task<ActionResult<ReservationVM?>> CreateReservationAsync([FromBody] ReservationIM reservationIm)
+    public async Task<ActionResult<ReservationVM?>> CreateReservationAsync(ReservationIM reservationIm)
     {
         return await this.reservationService.CreateReservationAsync(reservationIm, this.currentUser.UserId);
     }
