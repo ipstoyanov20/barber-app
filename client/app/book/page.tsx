@@ -19,15 +19,40 @@ function Book() {
 	  const fetchUser = async () => {
 		try {
 		  const response: any = await userService.makeUserCurrentGetRequest();
-		  console.log(response.data);
+		  //make foreach and check if any resevation have the same date and time and tell which one
 		  setCurrentUser(response.data);
-			console.log(currentUser);
 		} catch (error) {
 		  console.error("Error fetching current user:", error);
 		}
 	  };
 	  fetchUser()
 	},[])
+
+	useEffect( () => {
+		const fetchDateAndTime = async () => {
+		  try {
+			const response: any = await reservationService.makeReservationIdGetRequest();
+			const reservations = response.data;
+			const currentDate = selectedDate.toISOString().split("T")[0];
+			const currentTime = selectedTime.split(":")[0];
+			const reservation = reservations.find(
+			  (reservation:any) =>
+				reservation.date === currentDate && reservation.time === parseInt(currentTime)
+			);
+			if (reservation) {
+			  setIsDisabled(true);
+			} else {
+			  setIsDisabled(false);
+			}
+
+
+			setCurrentUser(response.data);
+		  } catch (error) {
+			console.error("Error fetching reservations:", error);
+		  }
+		};
+		fetchDateAndTime()
+	  },[selectedDate, selectedTime])
 
 
 	const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -50,8 +75,9 @@ function Book() {
 		};
 		await reservationService.makeReservationPostRequest(
 			reservationData,
-			currentUser?.id || "",
-		);
+		).then(()=> {
+			window.location.href = "/";
+		})
 	};
 
 	const handleToggle = (index: number) => {

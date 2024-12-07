@@ -21,7 +21,7 @@ public class ReservationController : ControllerBase
         this.currentUser = currentUser;
     }
 
-    [HttpGet("userId")]
+    [HttpGet]
 
     public async Task<ActionResult<IEnumerable<ReservationVM>>> GetAllReservationsAsync()
     {

@@ -1,3 +1,7 @@
+"use client"
+import storageService from "@/services/storage-service";
+import Link from "next/link";
+
 function Services() {
 	const services = [
 		{
@@ -82,7 +86,9 @@ function Services() {
 			<span className="w-screen h-auto flex justify-center mt-5">
 				<div className="list-none font-cabinet font-bold text-5xl flex justify-between text-[#FAF5F1] w-[58%] h-36 py-5 px-3 bg-bordo items-center pl-10 pr-10">
 					<p>Make reservation right now</p>
+					<Link href={storageService.retrieveAccessToken() ? '/book' : '/login'}>
 					<button className="px-7 py-5 bg-[#FAF5F1] rounded-full text-bordo  cursor-pointer">Book now</button>
+					</Link>
 				</div>
 			</span>
 		</section>
