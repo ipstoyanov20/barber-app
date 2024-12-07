@@ -18,5 +18,6 @@ public class MappingProfile : Profile
         this.CreateMap<User, UserVM>();
         this.CreateMap<UserUM, User>();
         this.CreateMap<ReservationIM, Reservation>();
+        this.CreateMap<Reservation, ReservationVM>();
     }
 }

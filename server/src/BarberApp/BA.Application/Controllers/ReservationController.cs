@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using BA.Common.Models.Reservation;
 using BA.Data.Models;
-using BA.Service.Realizations;
+using BA.Service.Abstractions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,11 +11,13 @@ namespace BA.Application.Controllers;
 [Authorize]
 public class ReservationController : ControllerBase
 {
-    private readonly ReservationService reservationService;
+    private readonly IReservationService reservationService;
+    private readonly ICurrentUser currentUser;
 
-    public ReservationController(ReservationService reservationService)
+    public ReservationController(IReservationService reservationService,  ICurrentUser currentUser)
     {
         this.reservationService = reservationService;
+        this.currentUser = currentUser;
     }
 
     [HttpGet("Id")]
@@ -25,9 +27,9 @@ public class ReservationController : ControllerBase
         return await this.reservationService.GetReservationByIdAsync(Id);
     }
     [HttpPost]
-    public async Task<ActionResult<Reservation?>> CreateReservationAsync(ReservationIM reservationIm, string userId)
+    public async Task<ActionResult<ReservationVM?>> CreateReservationAsync([FromBody] ReservationIM reservationIm)
     {
-        return await this.reservationService.CreateReservationAsync(reservationIm, userId);
+        return await this.reservationService.CreateReservationAsync(reservationIm, this.currentUser.UserId);
     }
     
     

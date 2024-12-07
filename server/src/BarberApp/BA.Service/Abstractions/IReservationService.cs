@@ -5,7 +5,7 @@ namespace BA.Service.Abstractions;
 
 public interface IReservationService
 {
-    Task<Reservation?> GetReservationByIdAsync(string Id);
+    Task<Reservation?> GetReservationByIdAsync(string id);
     
-    Task<Reservation> CreateReservationAsync(ReservationIM reservationIM, string userId);
+    Task<ReservationVM> CreateReservationAsync(ReservationIM reservationIm, string userId);
 }

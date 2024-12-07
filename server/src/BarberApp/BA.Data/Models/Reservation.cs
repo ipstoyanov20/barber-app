@@ -16,10 +16,10 @@ public class Reservation
     public string LastName { get; set; } = String.Empty;
     
     [Required]
-    public DateOnly Date { get; set; } = DateOnly.FromDateTime(DateTime.Now);
+    public string Date { get; set; } = String.Empty;
 
     [Required]
-    public TimeSpan Time { get; set; } = DateTime.Now.TimeOfDay;
+    public string Time { get; set; } = String.Empty;
     
     
     public string Email { get; set; } = String.Empty;
