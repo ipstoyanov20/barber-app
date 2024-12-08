@@ -31,6 +31,7 @@ function Book() {
 	}, [currentUser]);
 
 	useEffect( () => {
+		if (!isServiceSelected) return;
 		const fetchDateAndTime = async () => {
 		  try {
 			const response: any = await reservationService.makeReservationIdGetRequest();
@@ -52,7 +53,7 @@ function Book() {
 		  }
 		};
 		fetchDateAndTime()
-	  },[selectedDate, selectedTime])
+	  },[selectedDate, selectedTime,isServiceSelected])
 
 
 	const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -65,6 +66,7 @@ function Book() {
 
 	const handleBackToService = () => {
 		setIsServiceSelected("");
+		setIsDisabled(false);
 	};
 
 	const handleSubmit = async () => {
