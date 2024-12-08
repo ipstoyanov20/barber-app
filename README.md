@@ -1,15 +1,42 @@
-<p style="font-size: 18px; line-height: 1.6;">
-  🌟 **Explore Our Website** 🌟
-  <br/>
-  Click the link below to visit our beautifully designed website:
-  <br/>
-  <a href="https://blue-plant-0da12f60f.4.azurestaticapps.net/" style="color: #0077cc; font-weight: bold; text-decoration: none;" target="_blank">Visit Our Website</a>
-</p>
+# Project Documentation
 
-<p style="font-size: 18px; line-height: 1.6;">
-  🚀 **Check Out Our Backend API** 🚀
-  <br/>
-  We’ve deployed our backend on Railway. Click the link below to access the API documentation:
-  <br/>
-  <a href="https://barber-app.up.railway.app/swagger/v1/swagger.json" style="color: #0077cc; font-weight: bold; text-decoration: none;" target="_blank">View Backend API</a>
-</p>
+## 🌟 Explore Our Website 🌟
+Click the link below to visit our beautifully designed website:  
+[Visit Our Website](https://blue-plant-0da12f60f.4.azurestaticapps.net/)
+
+---
+
+## 🚀 Check Out Our Backend API 🚀
+We’ve deployed our backend on Railway. Click the link below to access the API documentation:  
+[View Backend API](https://barber-app.up.railway.app/swagger/v1/swagger.json)
+
+---
+
+## 📖 Getting Started
+Follow these steps to run the project locally and explore its features:
+
+### 1. Clone the Repository
+Run the following commands in your terminal:
+```bash
+git clone <repository-url>
+cd barber-app
+```
+
+---
+
+### 2. Install Dependencies
+Open the project in Visual Studio Code (VSCode) and run the following command in the terminal to install the required dependencies:
+```bash
+npm install
+```
+
+---
+
+### 3. Run the Project
+Start the development server with this command:
+```bash
+npm run dev
+```
+
+### Enjoy working on the project! 🚀
+
