@@ -19,15 +19,16 @@ function Book() {
 	  const fetchUser = async () => {
 		try {
 		  const response: any = await userService.makeUserCurrentGetRequest();
-		  //make foreach and check if any resevation have the same date and time and tell which one
-		  setCurrentUser(response.data);
+		  if (JSON.stringify(currentUser) !== JSON.stringify(response.data)) {
+			setCurrentUser(response.data);
+		  }
 		  console.log(response.data);
 		} catch (error) {
 		  console.error("Error fetching current user:", error);
 		}
 	  };
 	  fetchUser()
-	},[])
+	}, [currentUser]);
 
 	useEffect( () => {
 		const fetchDateAndTime = async () => {
