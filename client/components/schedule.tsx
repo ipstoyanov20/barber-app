@@ -53,7 +53,7 @@ function Schedule() {
 				</h1>
 			</span>
 			<div className="w-full h-full flex justify-center items-start">
-				<span className="xl:h-[80%] 2xl:h-[75%] w-1 rounded-2xl mt-10 mr-5 bg-bordo"></span>
+				<span className="xl:h-[85%] 2xl:h-[85%] w-1 rounded-2xl mt-10 mr-5 bg-bordo"></span>
         <div className="w-3/4 mt-10">
           {Object.entries(scheduler).map(([day, times], index) => (
             <div
