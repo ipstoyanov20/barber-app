@@ -1,7 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.Runtime.InteropServices.JavaScript;
-using NpgsqlTypes;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BA.Data.Models;
 
@@ -59,5 +58,10 @@ public class Reservation
     /// <summary>
     /// Gets or sets the user ID of the person making the reservation.
     /// </summary>
+    
+    [Required]
     public string UserId { get; set; } = String.Empty;
+
+    [ForeignKey(nameof(UserId))] 
+    public User? User { get; set; } = new();
 }

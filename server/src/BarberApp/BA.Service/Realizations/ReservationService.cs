@@ -52,6 +52,7 @@ public class ReservationService : IReservationService
 
         var reservation = this.mapper.Map<Reservation>(reservationIm);
 
+        reservation.User = null;
         reservation.UserId = userId;
         reservation.FirstName = user.FirstName;
         reservation.LastName = user.LastName;
