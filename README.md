@@ -40,7 +40,7 @@ npm run dev
 
 ### 4. Documentation
 You can see the documentation here:
-<a href="server/src/documentation/Документация.docx" download>Documentation</a>
+<a href="server/src/documentation/Documentation.docx" download>Documentation</a>
 
 ### Enjoy working on the project! 🚀
 
