@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRef,useEffect } from "react";
 import { gsap } from "gsap";
 import SplitType from "split-type";
+import storageService from "@/services/storage-service";
 
 
 function Hero() {
@@ -62,7 +63,7 @@ function Hero() {
 							Experience premium grooming services tailored to your
 							individuality.
 						</p>
-						<Link href={`/book`}>
+						<Link href={storageService.retrieveAccessToken() ? "/book" : "/login"}>
 							<button className="bg-bordo transition-all rounded-md font-bold mt-10 px-10 py-2 text-white font-cabinet text-xl hover:bg-bordo/90">
 								Book Now
 							</button>
