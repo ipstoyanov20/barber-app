@@ -75,7 +75,7 @@ function Navbar() {
 									<div className="absolute top-12 right-0 mt-2 w-48 bg-white rounded-md shadow-lg">
 										<ul>
 											<li className="w-full">
-												<button className="w-full" onClick={logout}>
+												<button className="w-full">
 													<p className="w-full rounded-t-lg block px-4 font-cabinet font-semibold text-left py-2 hover:text-white hover:bg-bordo text-black">
 														My reservations
 													</p>
