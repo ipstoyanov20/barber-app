@@ -1,4 +1,4 @@
-import { ReservationVM, ReservationIM, ReservationApi, } from "@/api";
+import { ReservationVM, ReservationIM, ReservationApi, } from "@/webapi";
 import { WebApiService } from "./web-api-service";
 import { AxiosResponse } from "axios";
  export class ReservationService extends WebApiService {

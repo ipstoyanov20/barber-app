@@ -1,8 +1,8 @@
-import {UserUM} from "@/api";
-import {UserVM} from "@/api";
+import {UserUM} from "@/webapi";
+import {UserVM} from "@/webapi";
 import {WebApiService} from "@/services/web-api-service";
 import {AxiosResponse} from "axios";
-import {UserApi} from "@/api/apis/user-api";
+import {UserApi} from "@/webapi/apis/user-api";
 export class UserService extends WebApiService {
     userApi: UserApi;
     constructor() {

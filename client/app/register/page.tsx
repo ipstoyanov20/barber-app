@@ -1,7 +1,7 @@
 "use client";
 import authenticationService from "@/services/authentication-service";
 import userService from "@/services/user-service";
-import { UserUM } from "@/api/models/user-um";
+import { UserUM } from "@/webapi/models/user-um";
 import { useState } from "react";
 
 function Register() {

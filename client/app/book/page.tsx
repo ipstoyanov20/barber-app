@@ -5,8 +5,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import userService from "@/services/user-service"
 import reservationService from "@/services/reservation-service"
-import { UserVM } from "@/api/models/user-vm";
-import { ReservationIM } from "@/api";
+import { UserVM } from "@/webapi/models/user-vm";
+import { ReservationIM } from "@/webapi";
 function Book() {
 	
 	const [isDisabled, setIsDisabled] = useState(true);

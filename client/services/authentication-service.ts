@@ -1,4 +1,4 @@
-import { LoginRequest, RegisterRequest, BAApplicationApi, AccessTokenResponse, RefreshRequest } from "../api";
+import { LoginRequest, RegisterRequest, BAApplicationApi, AccessTokenResponse, RefreshRequest } from "../webapi";
 import { AxiosResponse } from "axios";
 import { WebApiService } from "./web-api-service"
 

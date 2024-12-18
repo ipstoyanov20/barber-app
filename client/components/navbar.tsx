@@ -25,13 +25,13 @@ function Navbar() {
 			{/* AuthGuard manages login state */}
 			<AuthGuard onAuthChange={setIsLogged} />
 
-			<ul className="flex h-20 bg-transparent space-x-5 items-center justify-between w-full">
+			<ul className="flex xl:h-15 2xl:h-20 bg-transparent space-x-5 items-center justify-between w-full">
 				{/* Left-side navigation items */}
 				<div className="flex space-x-5 justify-center items-center">
 					<li className="p-3 rounded-xl ml-5">
 						<Link
 							href="/#services"
-							className="font-bold font-cabinet relative nav-link cursor-pointer text-xl tracking-wide"
+							className="font-bold font-cabinet relative nav-link cursor-pointer xl:text-md 2xl:text-xl tracking-wide"
 						>
 							Services
 						</Link>
@@ -39,7 +39,7 @@ function Navbar() {
 					<li className="p-3 rounded-xl ml-5">
 						<Link
 							href="/#about"
-							className="font-bold font-cabinet relative nav-link cursor-pointer text-xl tracking-wide"
+							className="font-bold font-cabinet relative nav-link cursor-pointer xl:text-md 2xl:text-xl tracking-wide"
 						>
 							About Us
 						</Link>
@@ -52,12 +52,12 @@ function Navbar() {
 						<Link
 							href={storageService.retrieveAccessToken() ? "/book" : "/login"}
 						>
-							<p className="z-50 font-bold font-cabinet cursor-pointer px-5 py-2 text-[#FAF5F1] bg-bordo transition-all hover:bg-bordo/90 relative tracking-wide text-xl">
+							<p className="z-50 xl:scale-[80%] font-bold font-cabinet cursor-pointer px-5 py-2 text-[#FAF5F1] bg-bordo transition-all hover:bg-bordo/90 relative tracking-wide xl:text-md 2xl:text-xl">
 								Book Now
 							</p>
 						</Link>
 					</li>
-					<li className="p-3 rounded-xl absolute right-[9%]">
+					<li className="p-3 rounded-xl xl:scale-[80%] absolute right-[10%] 2xl:right-[9%]">
 						{isLogged ? (
 							<div className="relative">
 								<button className="cursor-pointer" onClick={toggleDropdown}>
@@ -94,7 +94,7 @@ function Navbar() {
 							</div>
 						) : (
 							<Link href="/login">
-								<p className="z-50 font-bold font-cabinet cursor-pointer px-5 py-2 hover:bg-[#dad5d2] transition-all bg-[#FAF5F1] relative tracking-wide text-xl">
+								<p className="z-50 font-bold font-cabinet cursor-pointer px-5 py-2 hover:bg-[#dad5d2] transition-all bg-[#FAF5F1] relative tracking-wide xl:text-md 2xl:text-xl">
 									Log In
 								</p>
 							</Link>
@@ -102,7 +102,7 @@ function Navbar() {
 					</li>
 
 					{/* Logo */}
-					<span className="logo absolute left-1/2 -translate-x-8">
+					<span className="logo xl:scale-[80%] absolute left-1/2 -translate-x-8">
 						<Link href="/">
 							<Image
 								src="/favicon.ico" // Same here for favicon
