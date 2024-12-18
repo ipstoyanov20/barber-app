@@ -40,13 +40,13 @@ function Services() {
   return (
 		<section id="services" className="w-screen h-auto pb-20 bg-[#FAF5F1]">
 			<div className="w-full relative h-auto flex justify-start pt-10">
-				<h1 className="z-20 whitespace-nowrap font-cabinet relative font-bold text-9xl ml-20 mt-20 text-bordo">
+				<h1 className="z-20 whitespace-nowrap font-cabinet relative font-bold xl:text-7xl 2xl:text-9xl ml-20 mt-20 text-bordo">
 					Men's haircut <br /> and beard <br />
 					styling
 				</h1>
-				<img className="z-10 absolute right-20" src="head.png" alt="" />
+				<img className="z-10 xl:scale-[70%] absolute xl:-right-32 2xl:right-20" src="head.png" alt="" />
 			</div>
-			<span className="w-screen h-auto flex justify-center mt-48">
+			<span className="w-screen h-auto flex justify-center xl:mt-44 2xl:mt-48">
 				<p className="z-20 font-bold font-cabinet text-3xl text-center text-bordo w-[40%]">
 					Looking for the perfect service for professional beard styling and
 					men's haircut in Sofia? Welcome to BARBERS BULGARIA – we are a center
@@ -56,8 +56,8 @@ function Services() {
 			</span>
 			<span className="w-screen h-auto flex justify-center mt-20">
 				<details>
-					<summary className="list-none font-cabinet font-bold text-5xl cursor-pointer text-[#FAF5F1] py-5 px-3 bg-bordo flex items-center justify-center">
-						Prices for beard styling and men's haircut in Sofia{" "}
+					<summary className="list-none xl:text-4xl xl:w-[650px] font-cabinet font-bold text-5xl cursor-pointer text-[#FAF5F1] xl:py-2 2xl:py-5 	 px-3 bg-bordo flex items-center justify-center">
+						Prices for the services
 						<span className="text-7xl mt-3 ml-5">+</span>
 					</summary>
 					<div className="mt-4">
@@ -84,10 +84,10 @@ function Services() {
 				</details>
 			</span>
 			<span className="w-screen h-auto flex justify-center mt-5">
-				<div className="list-none font-cabinet font-bold text-5xl flex justify-between text-[#FAF5F1] w-[58%] h-36 py-5 px-3 bg-bordo items-center pl-10 pr-10">
+				<div className="list-none xl:text-4xl xl:w-[650px] whitespace-nowrap xl:py-0 xl:px-5 2xl:py-5 font-cabinet font-bold text-5xl flex justify-between text-[#FAF5F1] w-[58%] h-36 px-3 bg-bordo items-center pl-10 pr-10">
 					<p>Make reservation right now</p>
 					<Link href={storageService.retrieveAccessToken() ? '/book' : '/login'}>
-					<button className="px-7 py-5 bg-[#FAF5F1] rounded-full text-bordo  cursor-pointer">Book now</button>
+					<button className="px-7 py-5 bg-[#FAF5F1] rounded-full text-bordo xl:text-lg whitespace-nowrap cursor-pointer">Book now</button>
 					</Link>
 				</div>
 			</span>
